@@ -1,0 +1,18 @@
+<table class="table">
+  <% names = ["Assaf Goldstein", "Idan Goldstein", "David Blue", "Joe blow", "Richard smith"] %>
+  <% 5.times do  %>
+  <tr>
+    <td width="32px"></td>
+    <td>
+      
+      <p><%=  lorem(12) %></p><br/>
+      <div class="command_bar">
+         <%= link_to "Edit" %> | <%= link_to "remove" %>
+      </div>
+    </td>
+    <td width="32px">
+      <h3> <%= "#{rand(4)}" %>  </h3>
+    </td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  story_id: 1
+  : 
+  estimation: 1
+  actual: 1
+  description: MyText
+  status: MyString
+
+two:
+  story_id: 1
+  : 
+  estimation: 1
+  actual: 1
+  description: MyText
+  status: MyString

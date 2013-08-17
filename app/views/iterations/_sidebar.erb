@@ -1,0 +1,26 @@
+
+<% content_for :sidebar do  %>
+    <h5> Create from template </h5>
+    <ul>
+      <li><%= link_to "New Iteration" %></li>
+    </ul>
+
+    <hr/>
+    <% if @iteration.present? %>
+      <h5> Manage Iteration </h5>
+      <ul>
+        <li><%= link_to "Edit Iteration" %></li>
+        <li><%= link_to "Iteration Board" %></li>
+        <li><%= link_to "Todos" %></li>
+        <li><%= link_to "Add story" %></li>
+      </ul>
+
+      <hr/>
+      <h5> Performance charts </h5>
+      <ul>
+        <li><%= link_to "Story Estimation " %></li>
+        <li><%= link_to "Code coverage  " %></li>
+        <li><%= link_to "Pairing  " %></li>
+      </ul>
+    <% end %>
+<%  end %>

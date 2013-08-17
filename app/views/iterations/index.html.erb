@@ -1,0 +1,37 @@
+<h1>Listing iterations</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Name</th>
+    <th>Starts on</th>
+    <th>Ends on</th>
+    <th>Current</th>
+    <th>Developers</th>
+    <th>Testers</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @iterations.each do |iteration| %>
+  <tr>
+    <td><%= iteration.project_id %></td>
+    <td><%= iteration.name %></td>
+    <td><%= iteration.starts_on %></td>
+    <td><%= iteration.ends_on %></td>
+    <td><%= iteration.current %></td>
+    <td><%= iteration.developers %></td>
+    <td><%= iteration.testers %></td>
+    <td><%= link_to 'Show', iteration %></td>
+    <td><%= link_to 'Edit', edit_iteration_path(iteration) %></td>
+    <td><%= link_to 'Destroy', iteration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Iteration', new_iteration_path %>
+
+<%= render "sidebar"  %>

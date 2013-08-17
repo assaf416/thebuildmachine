@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
+<h2><%= @project.name %></h2>
+
+<%= render "project_status" %>
 
 <p>
   <b>Created by user:</b>
@@ -41,5 +44,10 @@
 </p>
 
 
+<h2>Project Stories</h2>
+<%= render :partial => "shared/fake_stories" %>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+<%= render "sidebar"  %>

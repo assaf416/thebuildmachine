@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130817004309) do
+ActiveRecord::Schema.define(:version => 20130817015436) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(:version => 20130817004309) do
 
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
   add_index "comments", ["posted_by_id"], :name => "index_comments_on_posted_by_id"
+
+  create_table "iterations", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.date     "starts_on"
+    t.date     "ends_on"
+    t.boolean  "current"
+    t.integer  "developers"
+    t.integer  "testers"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "iterations", ["project_id"], :name => "index_iterations_on_project_id"
 
   create_table "project_templates", :force => true do |t|
     t.string   "name"
@@ -50,12 +64,63 @@ ActiveRecord::Schema.define(:version => 20130817004309) do
     t.datetime "updated_at",            :null => false
   end
 
+  create_table "stories", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.text     "description"
+    t.text     "functional_test"
+    t.string   "status"
+    t.integer  "created_by_user_id"
+    t.integer  "primary_solver_user_id"
+    t.integer  "secondary_solver_user_id"
+    t.integer  "tested_by_user_id"
+    t.integer  "iteration_id"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "stories", ["created_by_user_id"], :name => "index_stories_on_created_by_user_id"
+  add_index "stories", ["iteration_id"], :name => "index_stories_on_iteration_id"
+  add_index "stories", ["primary_solver_user_id"], :name => "index_stories_on_primary_solver_user_id"
+  add_index "stories", ["project_id"], :name => "index_stories_on_project_id"
+  add_index "stories", ["tested_by_user_id"], :name => "index_stories_on_tested_by_user_id"
+
+  create_table "tasks", :force => true do |t|
+    t.integer  "story_id"
+    t.integer  "estimated_by_user_id"
+    t.integer  "estimation"
+    t.integer  "actual"
+    t.text     "description"
+    t.string   "status"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "tasks", ["story_id"], :name => "index_tasks_on_story_id"
+
   create_table "tenants", :force => true do |t|
     t.string   "name"
     t.string   "subdomain"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "todos", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "iteration_id"
+    t.text     "description"
+    t.text     "solution"
+    t.boolean  "green"
+    t.integer  "owner_user_id"
+    t.string   "status"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "todos", ["iteration_id"], :name => "index_todos_on_iteration_id"
+  add_index "todos", ["owner_user_id"], :name => "index_todos_on_owner_user_id"
+  add_index "todos", ["project_id"], :name => "index_todos_on_project_id"
+  add_index "todos", ["status"], :name => "index_todos_on_status"
 
   create_table "users", :force => true do |t|
     t.string   "name"

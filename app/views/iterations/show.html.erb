@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @iteration.project_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @iteration.name %>
+</p>
+
+<p>
+  <b>Starts on:</b>
+  <%= @iteration.starts_on %>
+</p>
+
+<p>
+  <b>Ends on:</b>
+  <%= @iteration.ends_on %>
+</p>
+
+<p>
+  <b>Current:</b>
+  <%= @iteration.current %>
+</p>
+
+<p>
+  <b>Developers:</b>
+  <%= @iteration.developers %>
+</p>
+
+<p>
+  <b>Testers:</b>
+  <%= @iteration.testers %>
+</p>
+
+
+<%= link_to 'Edit', edit_iteration_path(@iteration) %> |
+<%= link_to 'Back', iterations_path %>
+
+<%= render "sidebar"  %>

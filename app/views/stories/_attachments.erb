@@ -1,0 +1,9 @@
+<table class="table">
+  <%  rand(4).times do %>
+  <tr>
+    <td><%= fake_name(["Picture", "Movie","link"])%> </td>
+    <td><%= fake_name(["Picture", "Movie","link"])%> </td>
+    <td width="100px"><%= link_to "delete", ""%> </td>
+  </tr>
+  <% end %>
+</table>

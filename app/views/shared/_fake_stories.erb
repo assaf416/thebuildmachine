@@ -1,0 +1,19 @@
+<table class="table">
+  <% names = ["Assaf Goldstein", "Idan Goldstein", "David Blue", "Joe blow", "Richard smith"] %>
+  <% 5.times do  %>
+  <tr>
+    <td width="32px"></td>
+    <td>
+      <div class="pull-right command_bar">
+        <%= "#{rand(4)} points" %> | <%= link_to "run tests" %> | <%= link_to "Edit" %> | <%= link_to "remove" %>
+      </div>
+      <b><%= link_to lorem(3),"/stories/1"  %></b><br/>
+      <p><%= lorem(12) %></p><br/>
+      <div class="command_bar">
+        <b> Users: </b>  <%= link_to fake_name(names) %>, <%=  link_to fake_name(names) %>, <%=  link_to fake_name(names) %>
+      </div>
+      
+    </td>
+  </tr>
+  <% end %>
+</table>

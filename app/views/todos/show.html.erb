@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @todo.project_id %>
+</p>
+
+<p>
+  <b>Iteration:</b>
+  <%= @todo.iteration_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @todo.description %>
+</p>
+
+<p>
+  <b>Solution:</b>
+  <%= @todo.solution %>
+</p>
+
+<p>
+  <b>Green:</b>
+  <%= @todo.green %>
+</p>
+
+<p>
+  <b>Owner user:</b>
+  <%= @todo.owner_user_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @todo.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_todo_path(@todo) %> |
+<%= link_to 'Back', todos_path %>

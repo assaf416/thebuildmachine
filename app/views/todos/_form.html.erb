@@ -1,0 +1,17 @@
+<%= simple_form_for(@todo) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :project_id %>
+    <%= f.input :iteration_id %>
+    <%= f.input :description %>
+    <%= f.input :solution %>
+    <%= f.input :green %>
+    <%= f.input :owner_user_id %>
+    <%= f.input :status %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

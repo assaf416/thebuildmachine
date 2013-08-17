@@ -2,14 +2,9 @@
 
 <table class="table">
   <tr>
-    <th>Created by user</th>
     <th>Name</th>
     <th>Description</th>
-    <th>Icon</th>
-    <th>Project template</th>
-    <th>Production server url</th>
-    <th>Test server url</th>
-    <th>Stageing server url</th>
+    <th>Progress</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,14 +12,13 @@
 
 <% @projects.each do |project| %>
   <tr>
-    <td><%= project.created_by_user_id %></td>
-    <td><%= project.name %></td>
+    <td><%= link_to project.name , project_path(project) %></td>
     <td><%= project.description %></td>
-    <td><%= project.icon %></td>
-    <td><%= project.project_template_id %></td>
-    <td><%= project.production_server_url %></td>
-    <td><%= project.test_server_url %></td>
-    <td><%= project.stageing_server_url %></td>
+    <td>
+<div class="progress progress-striped">
+  <div class="bar" style="width: 20%;"></div>
+</div>
+    </td>
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -35,3 +29,5 @@
 <br />
 
 <%= link_to 'New Project', new_project_path %>
+
+<% render "sidebar" %>

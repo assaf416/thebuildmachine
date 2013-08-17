@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_id: 1
+  name: MyString
+  description: MyText
+  functional_test: MyText
+  status: MyString
+  created_by_user_id: 1
+  primary_solver_user_id: 1
+  secondary_solver_user_id: 
+  tested_by_user_id: 1
+  iteration_id: 1
+
+two:
+  project_id: 1
+  name: MyString
+  description: MyText
+  functional_test: MyText
+  status: MyString
+  created_by_user_id: 1
+  primary_solver_user_id: 1
+  secondary_solver_user_id: 
+  tested_by_user_id: 1
+  iteration_id: 1

@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @story.name %></h2>
+
+
+<table class="table">
+  <tr>
+    <td width="30%"><b>Description</b> </td>
+    <td> <%= @story.description %> </td>
+  </tr>
+  <tr>
+    <td width="30%"><b>Name</b> </td>
+    <td> <%= @story.name %> </td>
+  </tr>
+  <tr>
+    <td width="30%"><b>Priority</b> </td>
+    <td> <%= "High" %> </td>
+  </tr>
+  <tr>
+    <td width="30%"><b>Status:</b> </td>
+    <td> <%= @story.status %> </td>
+  </tr>
+  <tr>
+    <td width="30%"><b>Solved by</b> </td>
+    <td> <%= fake_name(["Assaf","idan"]) %> </td>
+  </tr>
+  <tr>
+    <td width="30%"><b>Approved</b> </td>
+    <td> <%= time_ago_in_words(Time.now - rand(1000)) %> </td>
+  </tr>
+  <tr>
+    <td width="30%"><b>Estimation:</b> </td>
+    <td> <%= @story.estimation %> points </td>
+  </tr>
+</table>
+<hr/>
+
+
+<div class="pull-right">
+  <%= link_to "upload" , "" , :class => "btn"  %> 
+  <%= link_to "add url" , "" , :class => "btn" %> 
+  <%= link_to "add movie" , "" , :class => "btn" %>
+</div>
+<h3>Attachments</h3>
+<%= render "attachments" %>
+<hr/>
+
+<div class="pull-right">
+  <%= link_to "Save" ,"", :class => "btn" %>
+  <%= link_to "Test" ,"", :class => "btn" %>
+  <%= link_to "Approve" ,"", :class => "btn" %>
+  <%= link_to "Deny" ,"", :class => "btn" %>
+</div>
+<h3>Acceptence tests</h3>
+<%= render "acceptence_tests" %>
+  
+
+<div class="pull-right"> <h3><%= @story.estimation %> points </h3></div>
+<h3> Story Tasks </h3>
+<%= render "add_task" %>
+<%= render "shared/fake_tasks" %>
+
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Back', stories_path %>
+
+
+
+<%= render "sidebar" %>

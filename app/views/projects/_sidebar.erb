@@ -1,0 +1,39 @@
+
+<% content_for :sidebar do  %>
+  <div class="well">
+    <h5> Create from template </h5>
+    <ul>
+      <li><%= link_to "New Rails Project" %></li>
+      <li><%= link_to "New AngularJS" %></li>
+    </ul>
+
+    <hr/>
+    <% if @project.present? %>
+      <h5> Manage Project </h5>
+      <ul>
+        <li><%= link_to "Iteration board" %></li>
+        <li><%= link_to "backboard list" %></li>
+        <li><%= link_to "Project To do" %></li>
+        <li><%= link_to "Manage Members" %></li>
+        <li><%= link_to "Show Production server" %></li>
+      </ul>
+
+      <hr/>
+      <h5> Project Comunication </h5>
+      <ul>
+        <li><%= link_to "Photos " %></li>
+        <li><%= link_to "Messages" %></li>
+        <li><%= link_to "Book marks " %></li>
+        <li><%= link_to "Meeting notes " %></li>
+      </ul>
+      
+      <hr/>
+      <h5> Team Performance </h5>
+      <ul>
+        <li><%= link_to "Estimation " %></li>
+        <li><%= link_to "Code Coverage " %></li>
+        <li><%= link_to "Pairing" %></li>
+      </ul>
+    <% end %>
+  </div>
+<%  end %>

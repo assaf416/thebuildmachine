@@ -1,4 +1,14 @@
 Forum::Application.routes.draw do
+  resources :todos
+
+  resources :iterations
+
+  resources :tasks
+
+  resources :stories
+
+  resources :stroys
+
   resources :project_templates
 
   resources :projects

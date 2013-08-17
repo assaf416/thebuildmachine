@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_id: 1
+  name: MyString
+  starts_on: 2013-08-16
+  ends_on: 2013-08-16
+  current: false
+  developers: 1
+  testers: 1
+
+two:
+  project_id: 1
+  name: MyString
+  starts_on: 2013-08-16
+  ends_on: 2013-08-16
+  current: false
+  developers: 1
+  testers: 1
