@@ -1,0 +1,9 @@
+username: "admin"
+password: "secret"
+secret_token: "024e1460..."
+development:
+  host: "localhost:3000"
+test:
+  host: "test.local"
+production:
+  host: "blog.example.com"

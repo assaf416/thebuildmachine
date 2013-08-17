@@ -1,0 +1,34 @@
+<h1> Nesws and Notifications </h1>
+
+Hello <%= current_user.name %>! 
+
+
+I have gathered you some new news since you're last logged in
+
+<div class="row">
+  <div class="span3">
+    <h3>New Presets</h3>
+    <%= render 'shared/fake_presets_list_sidebar' %>
+  </div>
+  <div class="span3">
+    <h3>New Samples</h3>
+    <%= render 'shared/fake_presets_list_sidebar' %>
+  </div>
+  <div class="span3">
+    <h3>New Songs</h3>
+    <%= render 'shared/fake_presets_list_sidebar' %>
+  </div>
+  <div class="span3">
+    <h3>New Users</h3>
+    <%= render 'shared/fake_presets_list_sidebar' %>
+  </div>
+</div>
+
+
+<% content_for :sidebar do  %>
+
+<p> New Comments and Messages from other users </p>
+<%= render 'shared/fake_user_list' %>
+
+
+<% end  %>

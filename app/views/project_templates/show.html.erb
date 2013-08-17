@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @project_template.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @project_template.description %>
+</p>
+
+<p>
+  <b>Manual:</b>
+  <%= @project_template.manual %>
+</p>
+
+<p>
+  <b>Git url:</b>
+  <%= @project_template.git_url %>
+</p>
+
+<p>
+  <b>Application:</b>
+  <%= @project_template.application %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_template_path(@project_template) %> |
+<%= link_to 'Back', project_templates_path %>

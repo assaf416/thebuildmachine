@@ -1,0 +1,15 @@
+<table class="table-striped">
+
+  <% 5.times do  %>
+    <tr valign="top">
+      <td width="64"><%= image_tag "/assets/fake_user.png", :size => "64x64" %></td>
+      <td>
+        <b>Song Name</b><br/>
+          Band: Pink Floyd  Genere: Rock Mixed by: Assaf416 
+        <br/>
+          <%= link_to "add to library" %> | <%= link_to "audition" %> | <%= link_to "rate" %> | <%= link_to "share" %> 
+        </br>
+      </td>
+    </tr>
+  <% end %>
+</table>

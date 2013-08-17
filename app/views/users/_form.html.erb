@@ -1,0 +1,20 @@
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :subdomain %>
+    <%= f.input :picture_url %>
+    <%= f.input :plays_intruments %>
+    <%= f.input :liked_generes %>
+    <%= f.input :location %>
+    <%= f.input :sounds_like %>
+    <%= f.input :admin %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

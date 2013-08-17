@@ -1,0 +1,31 @@
+<h1>Listing project_templates</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Manual</th>
+    <th>Git url</th>
+    <th>Application</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @project_templates.each do |project_template| %>
+  <tr>
+    <td><%= project_template.name %></td>
+    <td><%= project_template.description %></td>
+    <td><%= project_template.manual %></td>
+    <td><%= project_template.git_url %></td>
+    <td><%= project_template.application %></td>
+    <td><%= link_to 'Show', project_template %></td>
+    <td><%= link_to 'Edit', edit_project_template_path(project_template) %></td>
+    <td><%= link_to 'Destroy', project_template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project template', new_project_template_path %>

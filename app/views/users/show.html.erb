@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Subdomain:</b>
+  <%= @user.subdomain %>
+</p>
+
+<p>
+  <b>Picture url:</b>
+  <%= @user.picture_url %>
+</p>
+
+<p>
+  <b>Plays intruments:</b>
+  <%= @user.plays_intruments %>
+</p>
+
+<p>
+  <b>Liked generes:</b>
+  <%= @user.liked_generes %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @user.location %>
+</p>
+
+<p>
+  <b>Sounds like:</b>
+  <%= @user.sounds_like %>
+</p>
+
+<p>
+  <b>Password digest:</b>
+  <%= @user.password_digest %>
+</p>
+
+<p>
+  <b>Admin:</b>
+  <%= @user.admin %>
+</p>
+
+
+<hr/>
+<h4> <%= @user.name %> Presets </h4>
+<%= render '/presets/list'  %>
+<hr/>
+<h4> <%= @user.name %> Songs </h4>
+<%= render '/songs/list'%>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+
+
+
+<% content_for :sidebar do  %>
+  <h5> Recommended Users </h5>
+  <%= render 'shared/fake_user_list_sidebar'%>
+<% end %>

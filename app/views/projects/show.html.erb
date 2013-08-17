@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Created by user:</b>
+  <%= @project.created_by_user_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @project.description %>
+</p>
+
+<p>
+  <b>Icon:</b>
+  <%= @project.icon %>
+</p>
+
+<p>
+  <b>Project template:</b>
+  <%= @project.project_template_id %>
+</p>
+
+<p>
+  <b>Production server url:</b>
+  <%= @project.production_server_url %>
+</p>
+
+<p>
+  <b>Test server url:</b>
+  <%= @project.test_server_url %>
+</p>
+
+<p>
+  <b>Stageing server url:</b>
+  <%= @project.stageing_server_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
