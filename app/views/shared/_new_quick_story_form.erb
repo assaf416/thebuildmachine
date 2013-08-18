@@ -1,0 +1,23 @@
+
+<% @new_story  = Story.new(:project_id => 1, :status => "new") %>
+
+<div class="row well"  style="display:none;" id="quick_story_form">
+  <%= simple_form_for(@new_story) do |f| %>
+
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :dev_estimation, collection: ["Epsilon", "1 Point", "2 Points","3 Points", "Epic", "Spike"], prompt: "Estimate Story Development" %>
+      <%= f.input :test_estimation, collection: ["Epsilon", "1 Point", "2 Points","3 Points", "Epic", "Spike"], prompt: "Estimate Story Testing" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+
+  <%end%>
+</div>
+
+<style>
+  textarea{ width:100%;height:80px;}
+</style>

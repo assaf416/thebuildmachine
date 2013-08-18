@@ -1,7 +1,8 @@
 class CreateComments < ActiveRecord::Migration
   def change
     create_table :comments do |t|
-      t.text :content
+      t.text :content, :answer
+      t.string :kind, :picture_url, :movie_url, :page_url
       t.integer :rate
       t.integer :posted_by_id
       t.integer :commentable_id

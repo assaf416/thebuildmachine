@@ -1,9 +1,14 @@
 class Story < ActiveRecord::Base
-  attr_accessible :created_by_user_id, :description, :functional_test, :iteration_id, :name, :primary_solver_user_id, :project_id, :secondary_solver_user_id, :status, :tested_by_user_id
+  attr_accessible :created_by_user_id, :description, 
+                  :functional_test, :iteration_id, :name, 
+                  :primary_solver_user_id, :project_id, 
+                  :secondary_solver_user_id, :status, :tested_by_user_id,
+                  :dev_estimation, :dev_actual
+                
   has_many :tasks
   belongs_to :project
   belongs_to :iteration
-  
+  has_many :comments, as: :commentable
   
   def estimation
     p = 0

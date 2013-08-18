@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_id: 1
+  kind: MyString
+  created_by_user_id: 1
+  started_at: 2013-08-18 00:42:09
+  ended_at: 2013-08-18 00:42:09
+  title: MyString
+  body: MyText
+
+two:
+  project_id: 1
+  kind: MyString
+  created_by_user_id: 1
+  started_at: 2013-08-18 00:42:09
+  ended_at: 2013-08-18 00:42:09
+  title: MyString
+  body: MyText

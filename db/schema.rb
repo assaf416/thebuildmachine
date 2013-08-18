@@ -11,10 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130817015436) do
+ActiveRecord::Schema.define(:version => 20130818044209) do
+
+  create_table "activities", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "kind"
+    t.integer  "created_by_user_id"
+    t.datetime "started_at"
+    t.datetime "ended_at"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "activities", ["created_by_user_id"], :name => "index_activities_on_created_by_user_id"
+  add_index "activities", ["kind"], :name => "index_activities_on_kind"
+  add_index "activities", ["project_id"], :name => "index_activities_on_project_id"
 
   create_table "comments", :force => true do |t|
     t.text     "content"
+    t.text     "answer"
+    t.string   "kind"
+    t.string   "picture_url"
+    t.string   "movie_url"
+    t.string   "page_url"
     t.integer  "rate"
     t.integer  "posted_by_id"
     t.integer  "commentable_id"
@@ -51,15 +72,22 @@ ActiveRecord::Schema.define(:version => 20130817015436) do
   end
 
   create_table "projects", :force => true do |t|
-    t.string   "created_by_user_id"
+    t.integer  "created_by_user_id"
     t.string   "name"
     t.text     "description"
-    t.string   "icon"
     t.integer  "project_template_id"
     t.string   "production_server_url"
     t.string   "test_server_url"
     t.string   "stageing_server_url"
     t.string   "build_machine_url"
+    t.string   "git_url"
+    t.string   "git_user"
+    t.string   "git_pwd"
+    t.string   "email_user"
+    t.string   "email_pwd"
+    t.integer  "development_unit_cost"
+    t.integer  "testing_unit_cost"
+    t.integer  "spec_unit_cost"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
   end
@@ -70,6 +98,10 @@ ActiveRecord::Schema.define(:version => 20130817015436) do
     t.text     "description"
     t.text     "functional_test"
     t.string   "status"
+    t.integer  "dev_estimation"
+    t.integer  "dev_actual"
+    t.integer  "test_estimation"
+    t.integer  "test_actual"
     t.integer  "created_by_user_id"
     t.integer  "primary_solver_user_id"
     t.integer  "secondary_solver_user_id"
@@ -127,15 +159,19 @@ ActiveRecord::Schema.define(:version => 20130817015436) do
     t.string   "email"
     t.string   "subdomain"
     t.string   "picture_url"
-    t.string   "plays_intruments"
-    t.string   "liked_generes"
+    t.string   "git_server"
+    t.string   "git_user"
+    t.string   "git_pwd"
     t.string   "location"
-    t.string   "sounds_like"
     t.string   "password_digest"
     t.boolean  "admin"
+    t.boolean  "tester"
+    t.boolean  "developer"
+    t.boolean  "customer"
     t.integer  "tenant_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "cost_per_point"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   add_index "users", ["tenant_id"], :name => "index_users_on_tenant_id"

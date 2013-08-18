@@ -1,58 +1,71 @@
 <p id="notice"><%= notice %></p>
-<h2><%= @story.name %></h2>
+<h2>Story: <%= @story.name %></h2>
 
+<pre><%= @story.description%> </pre>
 
 <table class="table">
   <tr>
-    <td width="30%"><b>Description</b> </td>
-    <td> <%= @story.description %> </td>
-  </tr>
-  <tr>
-    <td width="30%"><b>Name</b> </td>
-    <td> <%= @story.name %> </td>
-  </tr>
-  <tr>
     <td width="30%"><b>Priority</b> </td>
     <td> <%= "High" %> </td>
+    <td> <%= link_to "set high" %> |<%= link_to "set medium" %> | <%= link_to "set low" %>  </td>
   </tr>
   <tr>
     <td width="30%"><b>Status:</b> </td>
     <td> <%= @story.status %> </td>
+    <td></td>
   </tr>
   <tr>
     <td width="30%"><b>Solved by</b> </td>
     <td> <%= fake_name(["Assaf","idan"]) %> </td>
+    <td></td>
   </tr>
   <tr>
     <td width="30%"><b>Approved</b> </td>
     <td> <%= time_ago_in_words(Time.now - rand(1000)) %> </td>
+    <td> By: <%= User.first.name   %></td>
   </tr>
   <tr>
     <td width="30%"><b>Estimation:</b> </td>
     <td> <%= @story.estimation %> points </td>
+    <td><%= link_to "Actual Time"%> </td>
   </tr>
 </table>
 <hr/>
 
 
 <div class="pull-right">
-  <%= link_to "upload" , "" , :class => "btn"  %> 
-  <%= link_to "add url" , "" , :class => "btn" %> 
-  <%= link_to "add movie" , "" , :class => "btn" %>
+
+  <div class="btn-toolbar" style="margin: 0;">
+    <div class="btn-group open">
+      <button class="btn dropdown-toggle" data-toggle="dropdown">Add <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Upload Picture</a></li>
+        <li><a href="#">Link to a movie</a></li>
+        <li><a href="#">Add Bookmark</a></li>
+      </ul>
+    </div><!-- /btn-group -->
+  </div>
 </div>
 <h3>Attachments</h3>
 <%= render "attachments" %>
 <hr/>
 
 <div class="pull-right">
-  <%= link_to "Save" ,"", :class => "btn" %>
-  <%= link_to "Test" ,"", :class => "btn" %>
-  <%= link_to "Approve" ,"", :class => "btn" %>
-  <%= link_to "Deny" ,"", :class => "btn" %>
+ <div class="btn-toolbar" style="margin: 0;">
+    <div class="btn-group open">
+      <button class="btn dropdown-toggle" data-toggle="dropdown">Add <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Edit Test</a></li>
+        <li><a href="#">Run Story tests</a></li>
+        <li><a href="#">Approve story</a></li>
+        <li><a href="#">Deny story</a></li>
+      </ul>
+    </div><!-- /btn-group -->
+  </div>
 </div>
 <h3>Acceptence tests</h3>
 <%= render "acceptence_tests" %>
-  
+
 
 <div class="pull-right"> <h3><%= @story.estimation %> points </h3></div>
 <h3> Story Tasks </h3>

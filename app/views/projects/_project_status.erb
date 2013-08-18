@@ -1,15 +1,53 @@
+<hr/>
 <div class="row">
+
   <div class="span3">
-    <b><%= "Current Velocity" %></b><br/>
-    <span class="project-status-details"><%= lorem(10) %> </span>
+    <b><%= "Current Velocity" %></b>
+    <h5><span class="project-current-velocity-title"><%= rand(10) %> points</span>
+      <span class="project-current-velocity-change"><%= "up 3%" %> </span></h5>
   </div>
+
   <div class="span3">
     <b><%= "Head count" %></b><br/>
-    <span class="project-status-details"><%= lorem(10) %> </span>
+    <h5><span class="project-head-count-title"><%= rand(10) %> members</span>
+      <span class="project-head-count-change"><%= "up 3%" %> </span></h5>
   </div>
+
   <div class="span3">
-    <b><%= lorem(2) %></b><br/>
-    <span class="project-status-details"><%= lorem(10) %> </span>
+    <b><%= link_to "Project Posts" ,"" %></b><br/>
+    <h5><span class="project-posts-title"><%= rand(100) %> posts</span>
+      <span class="project-posts-change"><%= "2 New" %> </span></h5>
   </div>
 </div>
 <hr/>
+
+
+
+<% content_for :head do  %>
+  <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+<% end  %>
+
+<h3> Team Velocity chart</h3>
+<div id="myfirstchart" style="height: 150px;"></div>
+<hr/>
+<script>
+  Morris.Bar({
+    element: 'myfirstchart',
+    data: [
+      { y: '2006', a: 100, b: 90 },
+      { y: '2007', a: 75,  b: 65 },
+      { y: '2008', a: 50,  b: 40 },
+      { y: '2009', a: 75,  b: 65 },
+      { y: '2010', a: 50,  b: 40 },
+      { y: '2011', a: 75,  b: 65 },
+      { y: '2012', a: 100, b: 90 }
+    ],
+    xkey: 'y',
+    ykeys: ['a', 'b'],
+    labels: ['Current', 'Previous']
+  });
+    
+</script>

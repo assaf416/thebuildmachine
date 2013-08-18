@@ -1,39 +1,37 @@
 
 <% content_for :sidebar do  %>
   <div class="well">
-    <h5> Create from template </h5>
-    <ul>
-      <li><%= link_to "New Rails Project" %></li>
-      <li><%= link_to "New AngularJS" %></li>
-    </ul>
-
-    <hr/>
     <% if @project.present? %>
+      <h5> Monitor </h5>
+      <ul>
+        <li><%= link_to "Dashboard" , "/projects/#{@project.id}?view=dashboard"%></li>
+        <li><%= link_to "backboard list", "/projects/#{@project.id}?view=stories"%></li>
+        <li><%= link_to "Production server", "/projects/#{@project.id}?view=production"%></li>
+        <li><%= link_to "Calendar " , "/projects/#{@project.id}?view=calendar"%></li>
+        <li><%= link_to "Estimation " %></li>
+        <li><%= link_to "Code Coverage " %></li>
+      </ul>
+      <hr/>
       <h5> Manage Project </h5>
       <ul>
-        <li><%= link_to "Iteration board" %></li>
-        <li><%= link_to "backboard list" %></li>
-        <li><%= link_to "Project To do" %></li>
-        <li><%= link_to "Manage Members" %></li>
-        <li><%= link_to "Show Production server" %></li>
+        <li><%= link_to "Current Iteration" %></li>
+        <li><%= link_to "Latest stories" %></li>
+        <li><%= link_to "Stories to aprove (2)" %></li>
+        <li><%= link_to "Messages (12)" %></li>
+        <li><%= link_to "Project To do (1)" %></li>
+        <li><%= link_to "Questions (3)" %></li>
       </ul>
 
       <hr/>
-      <h5> Project Comunication </h5>
+      <h5> Project Activities </h5>
       <ul>
+        <li><%= link_to "Project activities", "/projects/#{@project.id}?view=activities"%></li>
         <li><%= link_to "Photos " %></li>
         <li><%= link_to "Messages" %></li>
         <li><%= link_to "Book marks " %></li>
         <li><%= link_to "Meeting notes " %></li>
       </ul>
-      
-      <hr/>
-      <h5> Team Performance </h5>
-      <ul>
-        <li><%= link_to "Estimation " %></li>
-        <li><%= link_to "Code Coverage " %></li>
-        <li><%= link_to "Pairing" %></li>
-      </ul>
+
     <% end %>
   </div>
 <%  end %>

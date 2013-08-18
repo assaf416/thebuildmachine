@@ -1,0 +1,39 @@
+<li>
+  <a id="btn-new-story" href="#" 
+     data-placement="bottom" 
+     data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." 
+     title="" data-original-title="Popover on bottom">
+    New Story
+  </a>
+  <div  id="form-new-story" 
+         class="hidden popover fade bottom in" style="top: 29px; left: -90px; display: block;">
+    <div class="arrow"> </div>
+    <form class="form-vertical">
+      <fieldset>
+        <legend>New Story</legend>
+        <label>Name</label><br/>
+        <input type="text" placeholder="Story Name…">
+        <br/>
+        
+        <label class="checkbox">
+          <input type="checkbox"> Spike
+        </label>
+        
+        <label>Story</label><br/>
+        <textarea type="text" style="width:270px;height:150px;"  placeholder="Story Name…">
+          <%= lorem(20) %>
+        </textarea>
+        
+        
+        <label>Estimation</label>
+        <input type="text" placeholder="Story Name…">
+        
+        
+        <hr/>
+        <button type="submit" class="btn">Submit</button>
+        <button type="submit" class="btn">New Story</button>
+        <button type="submit" class="btn">Edit</button>
+      </fieldset>
+    </form>
+    </div>
+</li>

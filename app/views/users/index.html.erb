@@ -4,9 +4,6 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th>Plays intruments</th>
-    <th>Liked generes</th>
-    <th>Location</th>
     <th></th>
     <th></th>
   </tr>
@@ -15,9 +12,6 @@
   <tr>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
-    <td><%= user.plays_intruments %></td>
-    <td><%= user.liked_generes %></td>
-    <td><%= user.location %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

@@ -1,0 +1,14 @@
+<table class="table">
+  <% for story in @project.stories do   %>
+  <tr>
+    <td width="32px"></td>
+    <td>
+      <div class="pull-right command_bar">
+        <%= "#{story.estimation} points" %> | <%= link_to "run tests" %> | <%= link_to "Edit" %> | <%= link_to "remove" %>
+      </div>
+      <b><%= link_to story.name,"/stories/#{story.id}"  %></b><br/>
+      <p><%= story.description %></p><br/>
+    </td>
+  </tr>
+  <% end %>
+</table>

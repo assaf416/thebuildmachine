@@ -2,18 +2,50 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :created_by_user_id %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :icon %>
-    <%= f.input :project_template_id %>
-    <%= f.input :production_server_url %>
-    <%= f.input :test_server_url %>
-    <%= f.input :stageing_server_url %>
-    <%= f.input :build_machine_url %>
+  <%#= f.input :created_by_user_id %>
+    <div class="span9">
+      <%= f.input :name %>
+      <%= f.input :description %>
+    </div>
+    <div class="span3">
+      <fieldset>
+        <legend>Servers</legend>
+        <%= f.input :production_server_url %>
+        <%= f.input :test_server_url %>
+      </fieldset>
+    </div>
+    <div class="span3">
+      <fieldset>
+        <legend>Source Code </legend>
+        <%= f.input :git_url %>
+        <%= f.input :git_user %>
+        <%= f.input :git_pwd %>
+        <%= f.input :build_machine_url %>
+      </fieldset>
+    </div>
+
+    <div class="span2">
+      <fieldset>
+        <legend>Project Billing </legend>
+        <%= f.input :development_unit_cost %>
+        <%= f.input :testing_unit_cost %>
+        <%= f.input :spec_unit_cost %>
+      </fieldset>
+    </div>
+    <div class="span2">
+      <fieldset>
+        <legend>Email </legend>
+        <%= f.input :email_user %>
+        <%= f.input :email_pwd %>
+      </fieldset>
+    </div>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<style>
+  textarea{ width:250px;height:80px}
+</style>

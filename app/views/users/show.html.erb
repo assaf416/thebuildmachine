@@ -20,25 +20,6 @@
   <%= @user.picture_url %>
 </p>
 
-<p>
-  <b>Plays intruments:</b>
-  <%= @user.plays_intruments %>
-</p>
-
-<p>
-  <b>Liked generes:</b>
-  <%= @user.liked_generes %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @user.location %>
-</p>
-
-<p>
-  <b>Sounds like:</b>
-  <%= @user.sounds_like %>
-</p>
 
 <p>
   <b>Password digest:</b>
@@ -52,11 +33,9 @@
 
 
 <hr/>
-<h4> <%= @user.name %> Presets </h4>
-<%= render '/presets/list'  %>
-<hr/>
-<h4> <%= @user.name %> Songs </h4>
-<%= render '/songs/list'%>
+
+<h3> <%= @user.name %> Stories  </h3>
+<%#= render "stories" %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
@@ -64,6 +43,6 @@
 
 
 <% content_for :sidebar do  %>
-  <h5> Recommended Users </h5>
-  <%= render 'shared/fake_user_list_sidebar'%>
+  <h5> Pairing with othe users </h5>
+  <%= render 'shared/user_tags'%>
 <% end %>

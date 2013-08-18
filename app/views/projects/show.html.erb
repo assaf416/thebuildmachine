@@ -1,51 +1,19 @@
 <p id="notice"><%= notice %></p>
-<h2><%= @project.name %></h2>
-
-<%= render "project_status" %>
-
-<p>
-  <b>Created by user:</b>
-  <%= @project.created_by_user_id %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
-
+<h2>Project: <%= @project.name %></h2>
 <p>
   <b>Description:</b>
   <%= @project.description %>
 </p>
 
-<p>
-  <b>Icon:</b>
-  <%= @project.icon %>
-</p>
-
-<p>
-  <b>Project template:</b>
-  <%= @project.project_template_id %>
-</p>
-
-<p>
-  <b>Production server url:</b>
-  <%= @project.production_server_url %>
-</p>
-
-<p>
-  <b>Test server url:</b>
-  <%= @project.test_server_url %>
-</p>
-
-<p>
-  <b>Stageing server url:</b>
-  <%= @project.stageing_server_url %>
-</p>
+  <%= render "project_status" if @view.include? "dash" %>
+  <%= render "calendar" if @view.include? "calendar" %>
 
 
-<h2>Project Stories</h2>
-<%= render :partial => "shared/fake_stories" %>
+
+<% if @view.include? "stories" %>
+  <h2>Project Stories</h2>
+  <%= render :partial => "stories", :locals => {:stories => @project.stories} %>
+<% end %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

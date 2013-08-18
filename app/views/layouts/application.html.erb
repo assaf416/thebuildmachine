@@ -8,9 +8,11 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
     <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js" %>
     <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
 
+    <%= csrf_meta_tags %>
+    <%= yield :head %>
     <!--
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
@@ -19,12 +21,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-
-    <style>
-      body{
-        margin-top: 60px;
-      }
-    </style>
 
 
 
@@ -56,17 +52,37 @@
               <% end %>
 
 
+
+
+
               <li><%= link_to "Projects", "/projects" %></li>
               <li><%= link_to "People" , "/users" %></li>
+
+              <ul class="nav pull-right">
+                <li class="divider-vertical"></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Create <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" id="new-story-btn">New Story</a></li>
+                    <li><a href="#">New Comment</a></li>
+                    <li><a href="#">New Question</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">New Project</a></li>
+                    <li><a href="#">New Meeting</a></li>
+                    <li><a href="#">New Call/Conference</a></li>
+                  </ul>
+                </li>
+              </ul>
+
             </ul>
+
           </div>
 
-          <div class=" hidden nav pull-right user-login-panel">
+          <div class="  nav pull-right user-login-panel">
             <%  if current_user %>
               <ul class="nav">
               </ul>
               Logged in as <strong><%= current_user.email %></strong>.
-
             <% else %>
               <%= link_to "Sign Up", signup_path %> or
               <%= link_to "Log In", login_path %>
@@ -84,6 +100,9 @@
         </div>
       <% end %>
 
+      <%= render "shared/new_quick_story_form" %>
+
+
       <div class="row">
         <div class="span9"><%= yield %></div>
         <div class="span3">
@@ -93,3 +112,4 @@
     </div>
   </body>
 </html>
+

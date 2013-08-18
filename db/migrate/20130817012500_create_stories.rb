@@ -6,6 +6,7 @@ class CreateStories < ActiveRecord::Migration
       t.text :description
       t.text :functional_test
       t.string :status
+      t.integer :dev_estimation, :dev_actual, :test_estimation, :test_actual
       t.integer :created_by_user_id
       t.integer :primary_solver_user_id
       t.integer :secondary_solver_user_id
