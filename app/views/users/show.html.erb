@@ -1,38 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Subdomain:</b>
-  <%= @user.subdomain %>
-</p>
-
-<p>
-  <b>Picture url:</b>
-  <%= @user.picture_url %>
-</p>
-
-
-<p>
-  <b>Password digest:</b>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <b>Admin:</b>
-  <%= @user.admin %>
-</p>
+<%= render "public_profile" %>
 
 
 <hr/>
+
+<h5> Current Stories</h5>
+<%= render "shared/fake_stories" %>
+
+
+<hr/>
+<%= render "work_to_do" %>
+
 
 <h3> <%= @user.name %> Stories  </h3>
 <%#= render "stories" %>
@@ -41,8 +20,4 @@
 <%= link_to 'Back', users_path %>
 
 
-
-<% content_for :sidebar do  %>
-  <h5> Pairing with othe users </h5>
-  <%= render 'shared/user_tags'%>
-<% end %>
+<%= render "sidebar" %>

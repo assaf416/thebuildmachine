@@ -1,0 +1,26 @@
+
+<% content_for :sidebar do  %>
+  <div class="well">
+    
+    <% if @user.present? %>
+      <h5> Today </h5>
+      <ul>
+        <li><%= link_to "Stories to Estimate (2)" , "/projects/#{@user.id}?view=dashboard"%></li>
+        <li><%= link_to "Stories to Approve (2)" , "/projects/#{@user.id}?view=dashboard"%></li>
+        <li><%= link_to "Stories to Test (1)" , "/projects/#{@user.id}?view=dashboard"%></li>
+        <li><%= link_to "Stories to Develop (2)" , "/projects/#{@user.id}?view=dashboard"%></li>
+      </ul>
+      <hr/>
+      
+      <h5> Upcomming Events </h5>
+      <ul>
+        <li><%= link_to "Tomorrow: Status Meeting" %></li>
+        <li><%= link_to "Thr 23@13:30 Conf call with Joe" %></li>
+      </ul>
+
+      <hr/>
+      <h5> Project Team mates </h5>
+      <%= render "shared/fake_users" %>
+    <% end %>
+  </div>
+<%  end %>

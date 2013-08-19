@@ -1,0 +1,43 @@
+<table class="table">
+  <tr>
+    <td width="100px">  <%= raw (fake_user_image(100)) %> </td>
+    <td>
+      <p>
+        <b>Name:</b>
+        <%= @user.name %>
+      </p>
+
+      <p>
+        <b>Email:</b>
+        <%= @user.email %>
+      </p>
+
+
+      <p>
+        <b>Admin:</b>
+        <%= @user.admin %>
+        <b>Developer:</b>     
+        <%= @user.developer %>
+        <b>Tester:</b>     
+        <%= @user.tester %>
+      </p>
+
+      <div class="btn-group">
+        <button class="btn">Connect</button>
+        <button class="btn">Chat</button>
+        <button class="btn">Ask Question</button>
+        <button class="btn">Ask Estimate</button>
+        <button class="btn">Send message</button>
+      </div>
+    </td>
+  </tr>
+
+  <tr >
+    <td colspan="2"> 
+      <h5> Billing</h5>
+      Development Hour $12.00 | Testing $7.00 | Management $12.00 
+    </td>
+  </tr>
+</table>
+
+

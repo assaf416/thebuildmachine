@@ -14,7 +14,7 @@ class StoriesController < ApplicationController
   # GET /stories/1.json
   def show
     @story = Story.find(params[:id])
-
+    @view = params[:view] ||=  "info"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @story }

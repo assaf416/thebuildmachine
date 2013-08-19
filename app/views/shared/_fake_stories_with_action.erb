@@ -6,24 +6,7 @@
       <td width="32px"><span class="badge">1</span></td>
       <td>
         <div class="pull-right command_bar">
-          <div class="btn-group">
-            <button class="btn btn-success">More</button>
-            <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Edit Requirement</a></li>
-              <li><a href="#">Edit Acceptence tests</a></li>
-              <li><a href="#">Estimate</a></li>
-              <li><a href="#">Assign Team</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Request estimation</a></li>
-              <li><a href="#">Ask Question</a></li>
-              <li><a href="#">Run Tests</a></li>
-              <li><a href="#">Deploy</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Change Priotrity</a></li>
-              <li><a href="#">Remove from iteration</a></li>
-            </ul>
-          </div>
+            <button class="btn btn-success"><%= action_name unless action_name.nil? %> </button>
         </div>
         <b><%= link_to lorem(3),"/stories/1"  %></b><br/>
         <div class="story-users">

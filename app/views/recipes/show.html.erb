@@ -1,0 +1,31 @@
+<div class="pull-right">
+  <%= image_tag @recipe.icon , :size => "200x200" %>
+</div>
+<p>
+  <b>User:</b>
+  <%= @recipe.user_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @recipe.name %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @recipe.body %>
+</p>
+
+<p>
+  <b>Rate:</b>
+  <%= @recipe.rate %>
+</p>
+
+<p>
+  <b>Catgetory:</b>
+  <%= @recipe.category %>
+</p>
+
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>

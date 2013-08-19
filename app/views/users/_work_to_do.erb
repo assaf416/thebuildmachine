@@ -1,0 +1,23 @@
+<div class="row">
+  
+  <h5> Customer Stories to Approve</h5>
+    <%= render "shared/fake_stories_with_action" , :locals => { :action_name => "Approve!"}%>
+  <hr/>
+  
+  
+  <h5> Developer Stories to Estimate</h5>
+  <%= render "shared/fake_stories_with_action" , :locals => { :action_name => "Estimate"}%>
+  <hr/>
+  
+  <h5> Developer | Testers Stories to implement</h5>
+  <%= render "shared/fake_stories_with_action" , :locals => { :action_name => "Test"}%>
+  <hr/>
+  
+  <h5>Pending questions</h5>
+  <%= lorem(200)  %>
+  <hr/>
+  
+  <h5>Open Tasks</h5>
+  <%= lorem(200)  %>
+  <hr/>
+</div>

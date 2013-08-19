@@ -1,5 +1,11 @@
 module ApplicationHelper
   
+  def fake_user_image(size)
+    rand_image_url = "user_#{rand(4)}_medium"
+    html = "<img src='/assets/fake/#{rand_image_url}.jpg' width='#{size}px' height='#{size}px;' />"
+  end
+  
+  
   def fake_name(ar)
     ar[rand(ar.size)]
   end

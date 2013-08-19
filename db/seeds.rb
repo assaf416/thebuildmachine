@@ -45,3 +45,11 @@ u = User.last
 Project.create!( name: u.name + "_project_1", created_by_user_id: u.id)
 Project.create!( name: u.name + "_project_2", created_by_user_id: u.id)
 Project.create!( name: u.name + "_project_3", created_by_user_id: u.id)
+
+
+
+#
+# Recipes 
+#
+Recipe.create!( name: "Rails 3.2 with login and Bootstrap", category: "Rails,application")
+Recipe.create!( name: "Angular 3.2 with login and Bootstrap", category: "Angular,application")

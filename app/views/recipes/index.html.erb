@@ -1,0 +1,28 @@
+<h1>Listing recipes</h1>
+
+<table class="table">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Rate</th>
+    <th>Catgetory</th>
+    <th></th>
+  </tr>
+
+<% @recipes.each do |recipe| %>
+  <tr>
+    <td width="50"><%= image_tag( recipe.icon, :size => "50x50") %></td>
+    <td><%= recipe.name %><br/><%= recipe.description %> </td>
+    <td><%= recipe.rate %></td>
+    <td><%= recipe.category %></td>
+    <td><%= link_to 'Show', recipe %>
+      | <%= link_to 'Edit', edit_recipe_path(recipe) %> |
+      |  <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Recipe', new_recipe_path %>

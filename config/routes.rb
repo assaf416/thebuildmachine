@@ -1,4 +1,6 @@
 Forum::Application.routes.draw do
+  resources :recipes
+
   resources :activities
 
   resources :todos

@@ -9,7 +9,15 @@
           <textarea style="width:450px;height:80px;"><%= @task.description %></textarea>
         </td>
         <td width="10%">
-          <%= f.input :estimation %>
+          Estimation
+          <div class="btn-group">
+            <button class="btn">0</button>
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn">Spike</button>
+          </div>
+          <%#= f.input :estimation %>
           <%= f.button :submit %>
         </td>
       </tr>

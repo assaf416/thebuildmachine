@@ -1,17 +1,11 @@
 
 <% content_for :sidebar do  %>
-    <h5> Create from template </h5>
-    <ul class="nav nav-tabs nav-stacked">
-      <li><%= link_to "New Story" %></li>
-    </ul>
-
-    <hr/>
     <% if @story.present? %>
       <h5> Manage Story </h5>
       <ul class="nav nav-tabs nav-stacked">
-        <li><%= link_to "Edit Details" %></li>
-        <li><%= link_to "Edit Test" %></li>
-        <li><%= link_to "Estimate" %></li>
+        <li><%= link_to "Edit Details", "/stories/#{@story.id}?view=info" %></li>
+        <li><%= link_to "Edit Test" , "/stories/#{@story.id}?view=test" %></li>
+        <li><%= link_to "Estimate" , "/stories/#{@story.id}?view=estimate" %></li>
         <li><%= link_to "Run Test" %></li>
         <li><%= link_to "Approve" %></li>
         <li><%= link_to "Add to Current Iteration" %></li>

@@ -26,6 +26,33 @@ Agile Project management console
 Confiuration can be found on the /config/application.yml.example
 
 
+## Storing Project activities on project git
+
+ *.buildmachine/project-activities.html
+ *.buildmachine/project-meeting-notes.html
+ *.buildmachine/project-stories.html
+ *.buildmachine/acceptance-tests/story-<StoryID>.html
+ *.buildmachine/performance-tests/<SenarioName>.html
+ *.buildmachine/servers/<ServerName>/system.monitor.html
+
+
+
+## Increase team communication
+
+Team members can chat, and video confrerence using "OpenToK"
+
+
+## Team measurement
+
+Charts and measure your team 
+ * Estimation time and quality
+ * Automation test
+ * Share knowledge in team
+ * Customer Responsive time
+ * Meeting and Phone calls 
+
+
+ 
 ```
 bundle
 rake db:setup

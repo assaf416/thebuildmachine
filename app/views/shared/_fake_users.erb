@@ -1,0 +1,17 @@
+<%
+names = ["Assaf Goldstein","Idang Goldstein", "Viki", "David Cole"]
+%>
+<table class="table">
+  <% 4.times do  %>
+    <tr>
+      <td width="50px"> <%= raw fake_user_image(50) %> </td>
+      <td>
+        <b><%= fake_name(names) %></b><br/>
+        Online!
+
+        
+
+      </td>
+    </tr>
+  <% end %>
+</table>
