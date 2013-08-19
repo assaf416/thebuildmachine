@@ -52,6 +52,12 @@ Charts and measure your team
  * Meeting and Phone calls 
 
 
+
+### Generators and command line
+
+ * rails g bm:clone <app-url>
+
+ * rake app:version:current
  
 ```
 bundle
