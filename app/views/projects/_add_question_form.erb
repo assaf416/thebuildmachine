@@ -1,0 +1,52 @@
+
+
+
+<div id="addQuestionForm"class="modal xxx fade">
+  <% @story = Story.new(:project_id => @project.id) %>
+  <%= simple_form_for(@story) do |f| %>
+
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Add Question</h3>
+    </div>
+    <div class="modal-body">
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <div class="row">
+          <div class="span6">
+            <table class="table">
+              <tr>
+                <td><%= raw( fake_user_image(50))   %></td>
+                <td colspan="2">
+                  <%= f.input :name %>
+                  <%= f.input :description %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <%= f.input :dev_estimation , :collection => ["1d", "2d" , "3d"]%>
+                </td>
+                <td>
+                  <%= f.input :test_estimation, :collection => ["1d", "2d" , "3d"] %>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+
+</div>
+
+
+<style>
+  .modal{ height:500px; width:600px;}
+</style>

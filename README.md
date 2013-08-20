@@ -60,6 +60,20 @@ Charts and measure your team
  * rake app:version:current
  * rake app:version:current
  
+
+### Using Faye to control the testing and deployment 
+
+```
+ Channels
+    * Project Channels     # activities , messages , git commands
+    * User Channels        # messages,activities,online?
+    * Testing Channels     # runnig cuecumber on machine
+    * Servers Channels     # monitoring runnig servers
+    * Whiteboard channels  # for sharing and contrlling video/audio call
+ 
+```
+
+
 ```
 bundle
 rake db:setup
