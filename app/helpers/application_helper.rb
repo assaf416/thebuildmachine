@@ -1,5 +1,26 @@
 module ApplicationHelper
   
+  
+  def fake_story_status_bar(percent)
+    
+    if percent < 30
+    return "<div class='progress progress-danger progress-striped span2'>
+      <div class='bar' style='width: #{percent}%'></div>
+    </div>"
+    end
+
+    if percent > 70
+    return "<div class='progress progress-success progress-striped span2'>
+      <div class='bar' style='width: #{percent}%'></div>
+    </div>"
+    end
+    
+    return "<div class='progress progress-info progress-striped span2'>
+      <div class='bar' style='width: #{percent}%'></div>
+    </div>"
+  end
+  
+  
   def fake_user_image(size)
     rand_image_url = "user_#{rand(4)}_medium"
     html = "<img src='/assets/fake/#{rand_image_url}.jpg' width='#{size}px' height='#{size}px;' />"

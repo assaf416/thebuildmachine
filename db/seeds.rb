@@ -32,10 +32,13 @@ Tenant.current_id = cheese.id
 #t.posts.create! content: "Setup this Rails app with Pow so you can switch the subdomain."
 #t.posts.create! content: "Try cheese or chunkybacon."
 
-User.create!(name: "admin", subdomain: "admin" , email: "guest@gmail.com", admin: true, password: "secret").save
-User.create!(name: "guest developer", subdomain: "developer" , email: "guest@gmail.com", developer: true, password: "secret").save
-User.create!(name: "guest tester", subdomain: "tester" , email: "guest@gmail.com", developer: true, password: "secret").save
-User.create!(name: "guest customer", subdomain: "customer" , email: "guest@gmail.com", customer: true, password: "secret").save
+
+if User.count < 1
+  User.create!(name: "admin", subdomain: "admin" , email: "admin@gmail.com", admin: true, password: "secret").save
+  User.create!(name: "demo developer", subdomain: "developer" , email: "developer@gmail.com", developer: true, password: "secret").save
+  User.create!(name: "demo tester", subdomain: "tester" , email: "tester@gmail.com", developer: true, password: "secret").save
+  User.create!(name: "demo customer", subdomain: "customer" , email: "customer@gmail.com", customer: true, password: "secret").save
+end
 
 ProjectTemplate.create!( name: "rails-3.2-template")
 ProjectTemplate.create!( name: "angularjs-template")

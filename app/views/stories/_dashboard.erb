@@ -1,4 +1,20 @@
 <div class="row">
+  <div class="btn-group">
+    <button class="btn">Test</button>
+    <% if current_user.developer? %>
+      <button class="btn">Estimate</button>
+      <button class="btn">Assign</button>
+    <% end  %>
+    <% if current_user.customer? %>
+      <button class="btn">Change</button>
+      <button class="btn">Approve</button>
+      <button class="btn">Take out </button>
+    <% end %>
+  </div>
+
+</div>
+
+<div class="row">
   <table class="table">
     <tr>
       <td width="30%"><b>Priority</b> </td>

@@ -1,23 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<%= render "public_profile" %>
-
-
-<hr/>
-
-<h5> Current Stories</h5>
-<%= render "shared/fake_stories" %>
+<% if @user.id == current_user.id %>
+  <h5> Current Stories</h5>
+  <%= render "shared/fake_stories" %>
+  <hr/>
+  <%= render "work_to_do" %>
+  
 
 
-<hr/>
-<%= render "work_to_do" %>
-
-
-<h3> <%= @user.name %> Stories  </h3>
-<%#= render "stories" %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% else %>
+  <%= render "public_profile" %>
+<% end %>
 
 
 <%= render "sidebar" %>

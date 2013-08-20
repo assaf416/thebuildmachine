@@ -1,6 +1,6 @@
 <table class="table">
   <tr>
-    <td width="100px">  <%= raw (fake_user_image(100)) %> </td>
+    <td width="100px">  <%= image_tag @user.picture_url, :size => "100x100" %> </td>
     <td>
       <p>
         <b>Name:</b>

@@ -1,16 +1,11 @@
-<%
-names = ["Assaf Goldstein","Idang Goldstein", "Viki", "David Cole"]
-%>
+
 <table class="table">
-  <% 4.times do  %>
+  <% for user in User.all do   %>
     <tr>
-      <td width="50px"> <%= raw fake_user_image(50) %> </td>
+      <td width="50px"> <%= image_tag(user.picture_url , :size => "50x50") %> </td>
       <td>
-        <b><%= fake_name(names) %></b><br/>
-        Online!
-
-        
-
+        <b><%= link_to user.name , user%></b><br/>
+        <p><%= link_to user.email, user %></p>
       </td>
     </tr>
   <% end %>

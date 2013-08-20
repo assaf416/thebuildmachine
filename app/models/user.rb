@@ -7,6 +7,15 @@ attr_accessible :name, :email, :subdomain, :picture_url,
 #  validates_uniqueness_of :email, scope: :tenant_id
 
   
+  include ApplicationHelper
+  def current?
+    if current_user.present?
+       return self.id == current_user.id
+    else
+      return false
+    end
+  end
+  
   def stories
     ret = Story.where(:created_by_user_id => self.id)
     ret << Story.where(:primary_solver_user_id => self.id)

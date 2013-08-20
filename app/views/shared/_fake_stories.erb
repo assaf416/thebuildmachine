@@ -1,7 +1,7 @@
 
 <table class="table">
   <% names = ["Assaf Goldstein", "Idan Goldstein", "David Blue", "Joe blow", "Richard smith"] %>
-  <% 5.times do  %>
+  <% rand(13).times do  %>
     <tr>
       <td width="32px"><span class="badge">1</span></td>
       <td>
@@ -10,18 +10,26 @@
             <button class="btn btn-success">More</button>
             <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li><a href="#">Edit Requirement</a></li>
-              <li><a href="#">Edit Acceptence tests</a></li>
-              <li><a href="#">Estimate</a></li>
-              <li><a href="#">Assign Team</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Request estimation</a></li>
-              <li><a href="#">Ask Question</a></li>
-              <li><a href="#">Run Tests</a></li>
-              <li><a href="#">Deploy</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Change Priotrity</a></li>
-              <li><a href="#">Remove from iteration</a></li>
+              <% if current_user.developer? %>
+                <li><a href="#">Estimate</a></li>
+                <li><a href="#">Assign Team</a></li>
+                <li><a href="#">Ask Question</a></li>
+                <li><a href="#">Run Tests</a></li>
+              <% end %>
+
+              <% if current_user.tester? %>
+                <li><a href="#">Ask Question</a></li>
+                <li><a href="#">Run Tests</a></li>
+              <% end %>
+
+              <% if current_user.customer? %>
+                <li><a href="#">Edit Requirement</a></li>
+                <li><a href="#">Edit Acceptence tests</a></li>
+                <li><a href="#">Run Tests</a></li>
+                <li><a href="#">Change Priotrity</a></li>
+                <li><a href="#">Request estimation</a></li>
+                <li><a href="#">Remove from iteration</a></li>
+              <% end %>
             </ul>
           </div>
         </div>
@@ -31,7 +39,7 @@
         </div>
         <p><%= lorem(12) %></p>
         <div class="story-status">
-          Dev esimation: <b> 3 </b> | Test estimation :<b> 3</b>
+        <%= raw(fake_story_status_bar(rand(99)))%> |    Dev esimation: <b> 3 </b> | Test estimation :<b> 3</b>
         </div>
 
       </td>

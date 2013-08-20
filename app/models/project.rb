@@ -16,4 +16,12 @@ class Project < ActiveRecord::Base
     )
   end
   
+  def profile_image_url
+    begin
+     User.find(self.created_by_user_id).image_url
+    rescue
+      "/assets/recipes/rails.png"
+    end
+  end
+  
 end

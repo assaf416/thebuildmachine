@@ -1,12 +1,39 @@
-<p id="notice"><%= notice %></p>
-<h2>Project: <%= @project.name %></h2>
-<p>
-  <b>Description:</b>
-  <%= @project.description %>
-</p>
 
-  <%= render "project_status" if @view.include? "dash" %>
-  <%= render "calendar" if @view.include? "calendar" %>
+<table class="table">
+  <tr>
+    <td width="100px"><%= image_tag @project.profile_image_url , :size => "100x100" %></td>
+    <td>
+      <div class="pull-right">
+        <%= raw(fake_story_status_bar(rand(99)))%>
+      </div>
+      <h5>Project: <%= @project.name %></h5>
+      <p>
+        <b>Description:</b>
+        <%= @project.description %>
+      </p>
+      
+      <div class="row">
+        <div class="btn-group">
+          <button class="btn">Test</button>
+          <% if current_user.customer? %>
+            <button class="btn">Invite</button>
+            <button class="btn">Delete</button>
+            <button class="btn">Add Story</button>
+          <% end %>
+        </div>
+
+      </div>
+    </td>
+  </tr>
+</table>
+
+<hr/>
+<h5>Stories in development </h5>
+<%= render "shared/fake_stories" %>
+
+
+<%= render "project_status" if @view.include? "dash" %>
+<%= render "calendar" if @view.include? "calendar" %>
 
 
 

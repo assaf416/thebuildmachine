@@ -58,6 +58,7 @@ Charts and measure your team
  * rails g bm:clone <app-url>
 
  * rake app:version:current
+ * rake app:version:current
  
 ```
 bundle

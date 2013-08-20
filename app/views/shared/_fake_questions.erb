@@ -1,0 +1,14 @@
+<div class="row">
+
+  <table class="table">
+    <% rand(3).times do  %>
+      <tr>
+        <td width="50px"> <%= raw fake_user_image(50) %> </td>
+        <td> 
+          <b><%= lorem(8) %></b><br/>
+          <p> <%= lorem(20) %></p>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
