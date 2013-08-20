@@ -1,16 +1,57 @@
+<table class="table">
+  <tr>
+    <td width="100px"><%= image_tag @story.project.profile_image_url , :size => "80x80" %></td>
+    <td>
+      <div class="pull-right">
+        <%= raw(fake_story_status_bar(rand(99)))%>
+      </div>
 
-<h2>Story: <%= @story.name %></h2>
-<hr/>
-<%= @story.description%> 
+
+      <div class="row">
+        <h5>Story: <%= @story.name %></h5>
+        <p>
+          <%= @story.description %>
+        </p>
+        <div class="btn-group">
+          <button onclick="location.href='/stories/<%=@story.id%>?view=test';" class="btn"><i class="icon-check"></i></button>
+          <button class="btn"><i class="icon-hand-down"></i></button>
+          <button class="btn"><i class="icon-hand-up"></i></button>
+          </div>
+          <div class="btn-group">
+          <% if current_user.developer? %>
+            <button onclick="location.href='/stories/<%=@story.id%>?view=estimate';" class="btn"><i class="icon-time"></i></button>
+            <button onclick="location.href='/stories/<%=@story.id%>?view=estimate';" class="btn"><i class="icon-question-sign"></i></button>
+          <% end %>
+          <% if current_user.customer? %>
+            <button class="btn"><i class="icon-group"></i></button>
+            <button class="btn"><i class="icon-remove"></i></button>
+          <% end %>
+        </div>
+
+      </div>
+    </td>
+  </tr>
+</table>
 <hr/>
 
-<%= render "dashboard"  if @view.include? "info"%>
+<%#= render "dashboard"  if @view.include? "info"%>
+
 
 <% if @view.include? "test" %>
+  <div class="pull-right">
+    <div class="btn-group">
+      <button class="btn"><i class="icon-check"></i> </button>
+      <button class="btn"><i class="icon-pencil"></i></button>
+      <button class="btn"><i class="icon-hand-up"></i></button>
+      <button class="btn"><i class="icon-hand-down"></i> </button>
+    </div>
+  </div>
   <h3>Acceptence tests</h3>
   <%= render "acceptence_tests" %>
   <hr/>
 <% end %>
+
+
 <% if @view.include? "estimate" %>
   <div class="pull-right"> <h3><%= @story.estimation %> points </h3></div>
   <h3> Story Tasks </h3>

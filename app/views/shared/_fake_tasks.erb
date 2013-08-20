@@ -1,19 +1,26 @@
 <table class="table">
   <% names = ["Assaf Goldstein", "Idan Goldstein", "David Blue", "Joe blow", "Richard smith"] %>
   <% rand(3).times do  %>
-  <tr>
-     <td width="32px">
-      <h3> <%= "#{rand(4)}" %>  </h3>
-    </td>
-    <td>
-      <p><%=  lorem(12) %></p>
-      <div class="command_bar">
-         <%= link_to "Edit" %> | <%= link_to "remove" %>
-      </div>
-    </td>
-    <td width="65px">
-      <h3> <%= raw fake_user_image(65) %>  </h3>
-    </td>
-  </tr>
+    <tr>
+      <td width="32px">
+        <span class="label label-info"><h3> <%= "#{rand(4)}" %></h3></span> 
+      </td>
+      <td>
+        <p><%=  lorem(12) %></p>
+        <div class="btn-group">
+          <button class="btn">0p</button>
+          <button class="btn">1p</button>
+          <button class="btn">2p</button>
+          <button class="btn">3p </button>
+          <button class="btn"><i class="icon-arrow-down"></i></button>
+          <button class="btn"><i class="icon-arrow-up"></i></button>
+          <button class="btn"><i class="icon-remove"></i></button>
+        </div>
+         Estimated by : Assaf Goldstein
+      </td>
+      <td width="65px">
+        <h3> <%= raw fake_user_image(65) %>  </h3>
+      </td>
+    </tr>
   <% end %>
 </table>

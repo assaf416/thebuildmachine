@@ -1,31 +1,47 @@
+<div class="well">
+  <table class="table">
+    <tr>
+      <td width="100px"><%= image_tag @project.profile_image_url , :size => "100x100" %></td>
+      <td>
+        <b>Project: <%= @project.name %></b><br/>
+        <%= @project.description %><br/>
+      </td>
+      <td>
+         <%= raw(fake_story_status_bar(rand(99)))%>
+      </td>
+    </tr>
+  </table>
 
-<table class="table">
-  <tr>
-    <td width="100px"><%= image_tag @project.profile_image_url , :size => "100x100" %></td>
-    <td>
-      <div class="pull-right">
-        <%= raw(fake_story_status_bar(rand(99)))%>
-      </div>
-      <h5>Project: <%= @project.name %></h5>
-      <p>
-        <b>Description:</b>
-        <%= @project.description %>
-      </p>
-      
-      <div class="row">
+  <table class="table">
+    <tr>
+      <td>
         <div class="btn-group">
-          <button class="btn">Test</button>
+          <button class="btn"><i class="icon-dashboard"></i></button>
+          <button class="btn"><i class="icon-group"></i></button>
+          <button class="btn"><i class="icon-calendar"></i></button>
+          <button class="btn"><i class="icon-envelope"></i></button>
+          <button class="btn"><i class="icon-list"></i></button>
+          <button class="btn"><i class="icon-desktop"></i></button>
+          <button class="btn"><i class="icon-bookmark"></i></button>
+        </div>
+      </td>
+      <td>
+        <div class="btn-group">
+          <% if current_user.developer? %>
+            <button onclick="location.href='/stories/<%=@project.id%>?view=estimate';" class="btn"><i class="icon-time"></i></button>
+            <button onclick="location.href='/stories/<%=@project.id%>?view=estimate';" class="btn"><i class="icon-question-sign"></i></button>
+          <% end %>
           <% if current_user.customer? %>
-            <button class="btn">Invite</button>
-            <button class="btn">Delete</button>
-            <button class="btn">Add Story</button>
+            <button class="btn"><i class="icon-quote-right"></i></button>
+            <button class="btn"><i class="icon-bookmark"></i></button>
           <% end %>
         </div>
+      </td>
+      
+    </tr>
+  </table>
+</div>
 
-      </div>
-    </td>
-  </tr>
-</table>
 
 <hr/>
 <h5>Stories in development </h5>

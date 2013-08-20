@@ -6,7 +6,9 @@
       <td width="32px"><span class="badge">1</span></td>
       <td>
         <div class="pull-right command_bar">
-          <div class="btn-group">
+          <%= raw(fake_story_status_bar(rand(99)))%>
+          
+          <div class="hidden btn-group">
             <button class="btn btn-success">More</button>
             <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
             <ul class="dropdown-menu">
@@ -38,10 +40,21 @@
           Customer: <b> <%= link_to fake_name(names) %> </b> | Developers:<b> <%= link_to fake_name(names) %>, <%=  link_to fake_name(names) %></b> | Tester: <b> <%=  link_to fake_name(names) %></b>
         </div>
         <p><%= lorem(12) %></p>
+        
+        <div class="btn-group pull-right">
+          <button class="btn"><i class="icon-check"></i></button>
+          <button class="btn"><i class="icon-pencil"></i></button>
+          <button class="btn"><i class="icon-time"></i></button>
+          <button class="btn"><i class="icon-user"></i></button>
+        </div>
+        
         <div class="story-status">
-        <%= raw(fake_story_status_bar(rand(99)))%> |    Dev esimation: <b> 3 </b> | Test estimation :<b> 3</b>
+           Dev esimation: <b> 3 </b> | Test estimation :<b> 3</b>
         </div>
 
+        
+        
+        
       </td>
     </tr>
   <% end %>

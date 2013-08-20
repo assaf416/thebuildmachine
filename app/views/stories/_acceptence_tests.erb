@@ -1,1 +1,13 @@
-<%= raw Pygments.highlight(@story.functional_test) %>
+<table class="table">
+  <tr>
+    <td>Status : PASS</td>
+    <td>Failed scenarions : 2</td>
+    <td>Passed scenarions : 2</td>
+    <td>Time to run : 23 seconds </td>
+  </tr>
+  <tr>
+    <td colspan="4">
+      <%= raw Pygments.highlight(@story.functional_test) %>
+    </td>
+  </tr>
+</table>
