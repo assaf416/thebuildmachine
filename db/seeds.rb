@@ -50,6 +50,47 @@ Project.create!( name: u.name + "_project_2", created_by_user_id: u.id)
 Project.create!( name: u.name + "_project_3", created_by_user_id: u.id)
 
 
+#
+# Meeting Types 
+#
+MeetingType.delete_all
+MeetingType.create!( :project_id => -1, 
+    :name => "Customer Meeting", 
+    :phone_call => false,:video_conf => false, :meeting => true,
+    :defult_time => 3 , :cost => 10 
+  )
+
+MeetingType.create!( :project_id => -1, 
+    :name => "Customer Call", 
+    :phone_call => true,:video_conf => false, :meeting => false,
+    :defult_time => 1 , :cost => 10 
+  )
+
+
+MeetingType.create!( :project_id => -1, 
+    :name => "Estimation Meeting", 
+    :phone_call => false,:video_conf => false, :meeting => true,
+    :defult_time => 3 , :cost => 10 
+  )
+
+MeetingType.create!( :project_id => -1, 
+    :name => "Iteration Summary", 
+    :phone_call => false,:video_conf => false, :meeting => true,
+    :defult_time => 10 , :cost => 10 
+  )
+
+
+MeetingType.create!( :project_id => -1, 
+    :name => "Daily Standup",
+    :phone_call => false,:video_conf => false, :meeting => true,
+    :defult_time => 1 , :cost => 10 
+  )
+
+MeetingType.create!( :project_id => -1, 
+    :name => "Video Conference", 
+    :phone_call => false,:video_conf => true, :meeting => false,
+    :defult_time => 1 , :cost => 10 
+  )
 
 #
 # Recipes 

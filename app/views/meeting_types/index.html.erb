@@ -1,0 +1,35 @@
+<h1>Listing meeting_types</h1>
+
+<table class="table">
+  <tr>
+    <th>Project</th>
+    <th>Name</th>
+    <th>Cost</th>
+    <th>Defult time</th>
+    <th>Phone call</th>
+    <th>Video conf</th>
+    <th>Meeting</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @meeting_types.each do |meeting_type| %>
+  <tr>
+    <td><%= meeting_type.project_id %></td>
+    <td><%= meeting_type.name %></td>
+    <td><%= meeting_type.cost %></td>
+    <td><%= meeting_type.defult_time %></td>
+    <td><%= meeting_type.phone_call %></td>
+    <td><%= meeting_type.video_conf %></td>
+    <td><%= meeting_type.meeting %></td>
+    <td><%= link_to 'Show', meeting_type %></td>
+    <td><%= link_to 'Edit', edit_meeting_type_path(meeting_type) %></td>
+    <td><%= link_to 'Destroy', meeting_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Meeting type', new_meeting_type_path %>

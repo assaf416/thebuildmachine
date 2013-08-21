@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @meeting_type.project_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @meeting_type.name %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @meeting_type.cost %>
+</p>
+
+<p>
+  <b>Defult time:</b>
+  <%= @meeting_type.defult_time %>
+</p>
+
+<p>
+  <b>Phone call:</b>
+  <%= @meeting_type.phone_call %>
+</p>
+
+<p>
+  <b>Video conf:</b>
+  <%= @meeting_type.video_conf %>
+</p>
+
+<p>
+  <b>Meeting:</b>
+  <%= @meeting_type.meeting %>
+</p>
+
+
+<%= link_to 'Edit', edit_meeting_type_path(@meeting_type) %> |
+<%= link_to 'Back', meeting_types_path %>

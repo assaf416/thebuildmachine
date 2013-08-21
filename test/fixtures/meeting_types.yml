@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_id: 1
+  name: MyString
+  cost: 1
+  defult_time: MyString
+  phone_call: false
+  video_conf: false
+  meeting: false
+
+two:
+  project_id: 1
+  name: MyString
+  cost: 1
+  defult_time: MyString
+  phone_call: false
+  video_conf: false
+  meeting: false

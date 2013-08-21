@@ -1,0 +1,100 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @meeting.project_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @meeting.user_id %>
+</p>
+
+<p>
+  <b>Kind:</b>
+  <%= @meeting.kind %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @meeting.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @meeting.body %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @meeting.location %>
+</p>
+
+<p>
+  <b>Related stories:</b>
+  <%= @meeting.related_stories %>
+</p>
+
+<p>
+  <b>Related users:</b>
+  <%= @meeting.related_users %>
+</p>
+
+<p>
+  <b>Starts at:</b>
+  <%= @meeting.starts_at %>
+</p>
+
+<p>
+  <b>Starts on:</b>
+  <%= @meeting.starts_on %>
+</p>
+
+<p>
+  <b>Ends at:</b>
+  <%= @meeting.ends_at %>
+</p>
+
+<p>
+  <b>Meeting notes:</b>
+  <%= @meeting.meeting_notes %>
+</p>
+
+<p>
+  <b>Invited user names:</b>
+  <%= @meeting.invited_user_names %>
+</p>
+
+<p>
+  <b>Approved user names:</b>
+  <%= @meeting.approved_user_names %>
+</p>
+
+<p>
+  <b>Denided user names:</b>
+  <%= @meeting.denided_user_names %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @meeting.cost %>
+</p>
+
+<p>
+  <b>Billable:</b>
+  <%= @meeting.billable %>
+</p>
+
+<p>
+  <b>Private:</b>
+  <%= @meeting.private %>
+</p>
+
+<p>
+  <b>Meeting type:</b>
+  <%= @meeting.meeting_type_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+<%= link_to 'Back', meetings_path %>

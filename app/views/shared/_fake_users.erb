@@ -1,12 +1,33 @@
 
 <table class="table">
-  <% for user in User.all do   %>
+  <% for user in User.limit(rand(5)) do   %>
     <tr>
       <td width="50px"> <%= image_tag(user.picture_url , :size => "50x50") %> </td>
       <td>
-        <b><%= link_to user.name , user%></b><br/>
-        <p><%= link_to user.email, user %></p>
+        <div class="users_on_sidebar">
+        <div class="user-name"><%= link_to user.name , user%></div>
+        <p class="user-commands"><%= link_to "text" %> | <%= link_to "call" %> </p>
+        </div>
       </td>
     </tr>
   <% end %>
 </table>
+
+<style>
+  .users_on_sidebar{
+    
+  }
+  
+  .users_on_sidebar .user-name{
+    font-size: 12px;
+    font-weight: bolder;
+    line-height: 14px;
+    color:#006400;
+    
+  }
+  .users_on_sidebar .user-commands{
+    font-size: 10px;
+    line-height: 14px;
+    color:#1e90ff;
+  }
+  </style>

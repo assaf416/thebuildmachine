@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819013830) do
+ActiveRecord::Schema.define(:version => 20130821194051) do
 
   create_table "activities", :force => true do |t|
     t.integer  "project_id"
@@ -60,6 +60,48 @@ ActiveRecord::Schema.define(:version => 20130819013830) do
   end
 
   add_index "iterations", ["project_id"], :name => "index_iterations_on_project_id"
+
+  create_table "meeting_types", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.integer  "cost"
+    t.string   "defult_time"
+    t.boolean  "phone_call"
+    t.boolean  "video_conf"
+    t.boolean  "meeting"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "meeting_types", ["project_id"], :name => "index_meeting_types_on_project_id"
+
+  create_table "meetings", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.string   "kind"
+    t.string   "title"
+    t.text     "body"
+    t.string   "location"
+    t.string   "related_stories"
+    t.string   "related_users"
+    t.datetime "starts_at"
+    t.date     "starts_on"
+    t.datetime "ends_at"
+    t.text     "meeting_notes"
+    t.string   "invited_user_names"
+    t.string   "approved_user_names"
+    t.string   "denided_user_names"
+    t.integer  "cost"
+    t.boolean  "billable"
+    t.boolean  "private"
+    t.integer  "meeting_type_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "meetings", ["meeting_type_id"], :name => "index_meetings_on_meeting_type_id"
+  add_index "meetings", ["project_id"], :name => "index_meetings_on_project_id"
+  add_index "meetings", ["user_id"], :name => "index_meetings_on_user_id"
 
   create_table "project_templates", :force => true do |t|
     t.string   "name"

@@ -1,4 +1,8 @@
 Forum::Application.routes.draw do
+  resources :meeting_types
+
+  resources :meetings
+
   get "admin/index"
 
   get "admin/test"

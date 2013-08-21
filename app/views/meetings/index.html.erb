@@ -1,0 +1,59 @@
+<h1>Listing meetings</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>User</th>
+    <th>Kind</th>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Location</th>
+    <th>Related stories</th>
+    <th>Related users</th>
+    <th>Starts at</th>
+    <th>Starts on</th>
+    <th>Ends at</th>
+    <th>Meeting notes</th>
+    <th>Invited user names</th>
+    <th>Approved user names</th>
+    <th>Denided user names</th>
+    <th>Cost</th>
+    <th>Billable</th>
+    <th>Private</th>
+    <th>Meeting type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @meetings.each do |meeting| %>
+  <tr>
+    <td><%= meeting.project_id %></td>
+    <td><%= meeting.user_id %></td>
+    <td><%= meeting.kind %></td>
+    <td><%= meeting.title %></td>
+    <td><%= meeting.body %></td>
+    <td><%= meeting.location %></td>
+    <td><%= meeting.related_stories %></td>
+    <td><%= meeting.related_users %></td>
+    <td><%= meeting.starts_at %></td>
+    <td><%= meeting.starts_on %></td>
+    <td><%= meeting.ends_at %></td>
+    <td><%= meeting.meeting_notes %></td>
+    <td><%= meeting.invited_user_names %></td>
+    <td><%= meeting.approved_user_names %></td>
+    <td><%= meeting.denided_user_names %></td>
+    <td><%= meeting.cost %></td>
+    <td><%= meeting.billable %></td>
+    <td><%= meeting.private %></td>
+    <td><%= meeting.meeting_type_id %></td>
+    <td><%= link_to 'Show', meeting %></td>
+    <td><%= link_to 'Edit', edit_meeting_path(meeting) %></td>
+    <td><%= link_to 'Destroy', meeting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Meeting', new_meeting_path %>
