@@ -1,0 +1,119 @@
+<div class="row">
+  <div class="span9">
+    <h3>Server General Info</h3>
+    <table class="table">
+      <tr>
+        <td colspan="2"> IP Address :<b>192.343.234.10</b> |
+          Distro :<b>Ubuntu 13.4 32 bit</b> |
+          RAM :<b> 2GB</b> |
+          DISK:<b> 20GB</b> 
+        </td>
+      </tr>
+      <tr>
+        <td width="30%"> Installed Software: </td>
+        <td > <b>Rails 3.2, Ruby, Postgress, Flex <b/></td>
+      </tr>
+    </table>
+
+
+
+    <h3>Background processes</h3>
+    <table class="table">
+      <tr>
+        <th width="140px"> Name </th>
+        <th > Command line </th>
+        <th > Max RAM </th>
+        <th > Max CPU </th>
+      </tr>
+      
+      <tr>
+        <td width="140px"> Faye Server </td>
+        <td> <%= rand(20)%> </td>
+        <td> <%= rand(20)%> MB RAM </td>
+        <td> <%= rand(20)%> %CPU </td>
+      </tr>
+      
+      <tr>
+         <td width="140px"> Email Server </td>
+        <td> <%= rand(20)%> </td>
+        <td> <%= rand(20)%> MB RAM </td>
+        <td> <%= rand(20)%> %CPU </td>
+      </tr>
+    </table>
+
+    
+    
+    
+    
+    <h3>Exceptions and 404</h3>
+    <table class="table">
+      <tr>
+        <th width="140px"> Page </th>
+        <th > Source URL </th>
+        <th > Source IP </th>
+        <th > Location </th>
+      </tr>
+      
+      <tr>
+        <td width="140px"> Faye Server </td>
+        <td> <%= rand(20)%> </td>
+        <td> <%= rand(20)%> MB RAM </td>
+        <td> Toronto </td>
+      </tr>
+      
+      <tr>
+        <td width="140px"> Email Server </td>
+        <td> <%= rand(20)%> </td>
+        <td> <%= rand(20)%> MB RAM </td>
+        <td>  California </td>
+      </tr>
+    </table>
+    
+    
+    
+    <h3>Top 5 Applications</h3>
+    <table class="table">
+      <tr>
+        <th width="140px"> Application Name </th>
+        <th > CPU </th>
+        <th > Mem </th>
+      </tr>
+      
+      <tr>
+        <td width="140px"> The Build Machine </td>
+        <td> <%= rand(20)%> </td>
+        <td> <%= rand(20)%> MB RAM </td>
+      </tr>
+      
+      <tr>
+        <td width="140px"> Email Server </td>
+        <td> <%= rand(20)%> </td>
+        <td> <%= rand(20)%> MB RAM </td>
+      </tr>
+    </table>
+    
+    
+   <%= render "monitored_services" %>
+    
+    <h3>Monitored Files</h3>
+    <table class="table">
+      <tr>
+        <th width="140px"> Application Name </th>
+        <th > CPU </th>
+        <th > Mem </th>
+      </tr>
+      
+      <tr>
+        <td width="140px"> The Build Machine </td>
+        <td> <%= rand(20)%> </td>
+        <td> <%= rand(20)%> MB RAM </td>
+      </tr>
+      
+      <tr>
+        <td width="140px"> Email Server </td>
+        <td> <%= rand(20)%> </td>
+        <td> <%= rand(20)%> MB RAM </td>
+      </tr>
+    </table>
+  </div>
+</div>

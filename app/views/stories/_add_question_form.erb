@@ -2,7 +2,6 @@
 
 
 <div id="addQuestionForm"class="modal add_question_modal xxx fade">
-  <% @story = Story.new(:project_id => @project.id) %>
   <%= simple_form_for(@story) do |f| %>
 
     <div class="modal-header">

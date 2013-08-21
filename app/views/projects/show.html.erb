@@ -7,7 +7,7 @@
         <%= @project.description %><br/>
       </td>
       <td>
-         <%= raw(fake_story_status_bar(rand(99)))%>
+        <%= raw(fake_story_status_bar(rand(99)))%>
       </td>
     </tr>
   </table>
@@ -27,27 +27,28 @@
       </td>
       <td>
         <div class="btn-group">
-                  <a href="#addQuestionForm" role="button" class="btn" data-toggle="modal"><i class="icon-question-sign"></i></a>
+          <a href="#addQuestionForm" role="button" class="btn" data-toggle="modal"><i class="icon-question-sign"></i></a>
           <% if current_user.developer? %>
-  
+
             <button onclick="location.href='/stories/<%=@project.id%>?view=estimate';" class="btn"><i class="icon-time"></i></button>
             <button onclick="location.href='/stories/<%=@project.id%>?view=estimate';" class="btn"><i class="icon-question-sign"></i></button>
           <% end %>
           <% if current_user.customer? %>
             <a href="#addStoryForm" role="button" class="btn" data-toggle="modal"><i class="icon-quote-right"></i></a>
-            
+
             <button class="btn"><i class="icon-bookmark"></i></button>
           <% end %>
         </div>
       </td>
     </tr>
   </table>
-  
-  
- 
+
+
+
 
   <%= render "add_story_form" %>
   <%= render "add_question_form" %>
+  <%= render "edit_story_test_form" %>
 </div>
 
 

@@ -1,0 +1,28 @@
+<h3> Latest Builds </h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th width="32px">User</th>
+      <th >Activity</th>
+      <th width="120px">When</th>
+      <th width="70px">Tests</th>
+      <th width="70px">Compeleted</th>
+      <th width="70px">Failed</th>
+      <th width="70px">Test covarage</th>
+    </tr>
+  </thead>
+    
+  <tbody>
+    <% rand(14).times do  %>
+      <tr>
+        <td width="32px"><%= raw fake_user_image(32)  %> </td>
+        <td><%= lorem(3)   %> </td>
+        <td><%= time_ago_in_words(Time.now - rand(10000).seconds) %></td>
+        <td><%= rand(100) %> </td>
+        <td><%= rand(100) %> </td>
+        <td><%= rand(100) %> </td>
+        <td><%= rand(59) %>% </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

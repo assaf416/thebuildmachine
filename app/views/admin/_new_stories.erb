@@ -1,0 +1,19 @@
+<h3>Stories created today</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th width="32px">Members</th>
+      <th >Name</th>
+      <th width="50">Estimation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% rand(14).times do  %>
+      <tr>
+        <td> <%= raw fake_user_image(32)  %> </td>
+        <td> <%= lorem(5) %> </td>
+        <td> <%= rand(10) %> hours </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

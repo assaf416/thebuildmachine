@@ -1,0 +1,25 @@
+<div class="row">
+  <h3>Monitored Services</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th> Name</th>
+        <th width="80px"> Mem</th>
+        <th width="80px"> CPU</th>
+        <th width="80px"> Errors</th>
+        <th width="80px"> Started</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% 5.times do  %>
+        <tr>
+          <td width="140px"> <%= lorem(2)%>  </td>
+          <td><%= rand(100) %> </td>
+          <td><%= rand(100) %> </td>
+          <td><%= rand(100) %> </td>
+          <td><%= rand(100) %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

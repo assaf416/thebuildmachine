@@ -9,31 +9,7 @@
           <textarea style="width:450px;height:80px;"><%= @task.description %></textarea>
         </td>
         <td width="30%">
-          Story Estimation
-          <div class="btn-group">
-            <button class="btn">0p</button>
-            <button class="btn">1p</button>
-            <button class="btn">2p</button>
-            <button class="btn">3p </button>
-            </div>
-          <div class="btn-group hidden">
-            <button class="btn">0.5d</button>
-            <button class="btn">2d</button>
-            <button class="btn">2d</button>
-            <button class="btn">1w</button>
-            <button class="btn">Spike</button>
-            <button class="btn">Epic</button>
-          </div>
-          <br/>
-          Test Estimation
-          <div class="btn-group">
-            <button class="btn">0</button>
-            <button class="btn">1</button>
-            <button class="btn">2</button>
-            <button class="btn">3</button>
-            <button class="btn">Spike</button>
-          </div></br>
-          <%#= f.input :estimation %>
+          <%= f.input :estimation, :collection => ["0","1 Unit","2 Units","3 Units", "Spkie"] %>
           <%= f.button :submit %>
         </td>
       </tr>

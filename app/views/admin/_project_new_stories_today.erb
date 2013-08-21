@@ -1,0 +1,12 @@
+<h3>Project Stories </h3>
+<table>
+  <% rand(4).times do  %>
+  <tr>
+    <td width="32px"><%= raw fake_user_image(32)  %> </td>
+    <td>
+      <b><%= lorem(5) %> </b><br/>
+      <p><%= lorem(20) %></p>
+    </td>
+  </tr>
+  <% end %>
+</table>

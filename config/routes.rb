@@ -1,4 +1,8 @@
 Forum::Application.routes.draw do
+  get "admin/index"
+
+  get "admin/test"
+
   resources :recipes
 
   resources :activities

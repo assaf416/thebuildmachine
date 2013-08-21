@@ -13,7 +13,8 @@
           <%= @story.description %>
         </p>
         <div class="btn-group">
-          <button onclick="location.href='/stories/<%=@story.id%>?view=test';" class="btn"><i class="icon-check"></i></button>
+          <a href="#addQuestionForm" role="button" class="btn" data-toggle="modal"><i class="icon-question-sign"></i></a>
+          <a href="#editStoryTestForm" role="button" class="btn" data-toggle="modal"><i class="icon-check"></i></a>
           <button class="btn"><i class="icon-hand-down"></i></button>
           <button class="btn"><i class="icon-hand-up"></i></button>
         </div>
@@ -61,7 +62,8 @@
   <hr/>
 <% end %>
 
-
+<%= render "add_question_form" %>
+<%= render "edit_story_test_form" %>
 
 
 <%= link_to 'Edit', edit_story_path(@story) %> |

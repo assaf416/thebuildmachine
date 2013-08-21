@@ -1,13 +1,12 @@
 
 
 
-<div id="addQuestionForm"class="modal add_question_modal xxx fade">
-  <% @story = Story.new(:project_id => @project.id) %>
+<div id="editStoryTestForm"class="modal edit_story_test_modal xxx fade">
   <%= simple_form_for(@story) do |f| %>
 
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="myModalLabel">Add Question</h3>
+      <h3 id="myModalLabel">Edit Story Test</h3>
     </div>
     <div class="modal-body">
       <%= f.error_notification %>
@@ -17,9 +16,8 @@
           <div class="span6">
             <table class="table">
               <tr>
-                <td width="50px"><%= raw( fake_user_image(50))   %></td>
                 <td colspan="2">
-                  <%= f.input :description , :label => "Question"%>
+                  <%= f.input :description , :label => "Test"%>
                 </td>
               </tr>
             </table>
@@ -37,5 +35,5 @@
 
 
 <style>
-  .add_question_modal{ height:320px; width:600px;}
+  .edit_story_test_modal{ height:620px; width:600px;}
 </style>

@@ -1,0 +1,28 @@
+<h3>Story Estimation</h3>
+<table>
+  <thead>
+    <tr>
+      <th width="150px">Members</th>
+      <th width="400px">Story Name</th>
+      <th width="50">Est.</th>
+      <th width="50">Act</th>
+      <th width="50">Diff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% rand(14).times do  %>
+      <tr>
+
+        <td width="132px">
+          <%= raw fake_user_image(32)  %> 
+          <%= raw fake_user_image(32)  %> 
+          <%= raw fake_user_image(32)  %> 
+        </td>
+        <td> <%= lorem(5) %> </td>
+        <td> <%= rand(3) %> </td>
+        <td> <%= rand(10) %> </td>
+        <td> <%= rand(10) %> %</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
