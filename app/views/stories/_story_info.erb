@@ -1,0 +1,62 @@
+`<div class="row">
+
+  <div class="span1">
+    <%= image_tag @story.project.profile_image_url , :size => "80x80" %>
+  </div>
+
+  <div class="span8">
+    <table class="table">
+      <tr>
+        <td width="50%">
+          <B>Story</B><br/>
+          <%= @story.name%>
+        </td>
+
+        <td>
+          <B>Members</B><br/>
+          <%= link_to raw(fake_user_image(32)) , ""  %>
+          <%= link_to raw(fake_user_image(32)) , ""  %>
+          <%= link_to raw(fake_user_image(32)) , ""  %>
+        </td>
+
+
+        <td>
+          <B>Status</B><br/>
+          <%= raw(fake_story_status_bar(rand(99)))%>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <%= @story.description %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Actions<br/>
+          <div class="btn-group">
+            <a href="#addQuestionForm" role="button" class="btn" data-toggle="modal"><i class="icon-question-sign"></i></a>
+            <a href="#editStoryTestForm" role="button" class="btn" data-toggle="modal"><i class="icon-check"></i></a>
+            <button class="btn"><i class="icon-hand-down"></i></button>
+            <button class="btn"><i class="icon-hand-up"></i></button>
+          </div>
+        </td>
+
+        <td colspan="2">
+          Add to story<br/>
+          <div class="btn-group">
+            <% if current_user.developer? %>
+              <button onclick="location.href='/stories/<%=@story.id%>?view=estimate';" class="btn"><i class="icon-time"></i></button>
+              <button onclick="location.href='/stories/<%=@story.id%>?view=estimate';" class="btn"><i class="icon-question-sign"></i></button>
+            <% end %>
+            <% if current_user.customer? %>
+              <button class="btn"><i class="icon-group"></i></button>
+              <button class="btn"><i class="icon-remove"></i></button>
+            <% end %>
+          </div>
+
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
