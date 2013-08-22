@@ -1,30 +1,50 @@
 
 <% content_for :sidebar do  %>
-  <div class="well">
+  <div class="well project-sidebar">
+    <h5>Team members</h5>
+    <%= render "shared/fake_users" %>
     <% if @project.present? %>
-      <h5> Monitor </h5>
+      <h5> View </h5>
       <ul>
-        <li><%= link_to "Dashboard" , "/projects/#{@project.id}?view=dashboard"%></li>
-        <li><%= link_to "backboard list", "/projects/#{@project.id}?view=stories"%></li>
-        <li><%= link_to "Production server", "/projects/#{@project.id}?view=production"%></li>
-        <li><%= link_to "Calendar " , "/projects/#{@project.id}?view=calendar"%></li>
-        <li><%= link_to "Estimation " %></li>
-        <li><%= link_to "Code Coverage " %></li>
+        <li><%= link_to raw("<i class='icon-dashboard'></i> Dashboard") , "/projects/#{@project.id}?view=dashboard"%></li>
+        <li><%= link_to raw("<i class='icon-calendar'></i> Calendar") , "/projects/#{@project.id}?view=calendar"%></li>
+        <li><%= link_to raw("<i class='icon-check'></i> Todo") , "/projects/#{@project.id}?view=calendar"%></li>
+        <li><%= link_to raw("<i class='icon-cog'></i> Build Machine") , "/projects/#{@project.id}?view=calendar"%></li>
+        <li><%= link_to raw("<i class='icon-bookmark'></i> Bookmarks") , "/projects/#{@project.id}?view=calendar"%></li>
+        <li><%= link_to raw("<i class='icon-question-sign'></i> Questions") , "/projects/#{@project.id}?view=calendar"%></li>
       </ul>
       <hr/>
-      <h5> Manage Project </h5>
+
+
+      <h5> Stories </h5>
       <ul>
-        <li><%= link_to "Current Iteration" %></li>
-        <li><%= link_to "Latest stories" %></li>
-        <li><%= link_to "Stories to aprove (2)" %></li>
-        <li><%= link_to "Messages (12)" %></li>
-        <li><%= link_to "Project To do (1)" %></li>
-        <li><%= link_to "Questions (3)" %></li>
+        <li><%= link_to raw("Current Iteration (5)") , "/projects/#{@project.id}?view=dashboard"%></li>
+        <li><%= link_to raw("Backlog (41)") , "/projects/#{@project.id}?view=dashboard"%></li>
+        <li><%= link_to raw("Unestimated (13)") , "/projects/#{@project.id}?view=dashboard"%></li>
+        <li><%= link_to raw("Late stories (0)") , "/projects/#{@project.id}?view=dashboard"%></li>
+      </ul>
+      <hr/>
+
+
+      <h5> Budget </h5>
+      <ul>
+        <li><%= link_to raw("Code Coverage") , ""%></li>
+        <li><%= link_to raw("Estimation Charts") , ""%></li>
+      </ul>
+      <hr/>
+
+      <h5> Code Quality </h5>
+      <ul>
+        <li><%= link_to raw("Code Coverage") , ""%></li>
+        <li><%= link_to raw("Estimation Charts") , ""%></li>
       </ul>
 
       <hr/>
-      <h5> Project Activities </h5>
+      <h5> Project setup </h5>
       <ul>
+        <li><%= link_to "Testing Server server", "/projects/#{@project.id}?view=production"%></li>
+        <li><%= link_to "Edit info", "/projects/#{@project.id}/edit"%></li>
+
         <li><%= link_to "Project activities", "/projects/#{@project.id}?view=activities"%></li>
         <li><%= link_to "Photos " %></li>
         <li><%= link_to "Messages" %></li>
@@ -32,6 +52,19 @@
         <li><%= link_to "Meeting notes " %></li>
       </ul>
 
+
     <% end %>
   </div>
 <%  end %>
+
+<style>
+  .project-sidebar{
+    
+  }
+  .project-sidebar li{
+    list-style-type: none;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+  
+</style>

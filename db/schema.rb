@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(:version => 20130821194051) do
   end
 
   create_table "projects", :force => true do |t|
-    t.integer  "created_by_user_id"
+    t.integer  "user_id"
     t.string   "name"
     t.text     "description"
     t.integer  "project_template_id"

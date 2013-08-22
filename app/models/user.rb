@@ -5,7 +5,8 @@ attr_accessible :name, :email, :subdomain, :picture_url,
                 :admin,:password, :password_confirmation
   has_secure_password
 #  validates_uniqueness_of :email, scope: :tenant_id
-
+  has_many :meetings
+  has_many :projects
   
   include ApplicationHelper
   def current?

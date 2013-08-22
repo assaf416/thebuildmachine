@@ -1,0 +1,32 @@
+Feature: Story Management
+  
+  Scenario: Adding tasks and calculate costs
+    When I go to the welcome page
+    Then I should see "Welcome"
+
+
+  Scenario: quick create story should have default values
+    When I visit the login page
+    And I fill "demo@gmail.com" in email
+    And I fill "secret" in password
+    And I submit
+    Then I should be in "my profile" page
+
+
+  Scenario: adding question
+    When I visit the login page
+    And I fill "demo@gmail.com" in email
+    And I fill "secret" in password
+    And I submit
+    Then I should be in "my profile" page
+
+  Scenario: testing story
+    When I visit the login page
+    And I fill "demo@gmail.com" in email
+    And I fill "secret" in password
+    And I submit
+    Then I should be in "my profile" page
+
+
+   
+    

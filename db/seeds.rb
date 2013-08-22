@@ -38,6 +38,7 @@ if User.count < 1
   User.create!(name: "demo developer", subdomain: "developer" , email: "developer@gmail.com", developer: true, password: "secret").save
   User.create!(name: "demo tester", subdomain: "tester" , email: "tester@gmail.com", developer: true, password: "secret").save
   User.create!(name: "demo customer", subdomain: "customer" , email: "customer@gmail.com", customer: true, password: "secret").save
+  User.create!(name: "assaf416", subdomain: "customer" , email: "assaf.goldstein@gmail.com", customer: true, password: "clipper").save
 end
 
 ProjectTemplate.create!( name: "rails-3.2-template")
@@ -45,9 +46,9 @@ ProjectTemplate.create!( name: "angularjs-template")
 ProjectTemplate.create!( name: "sinatrarb-template")
 
 u = User.last
-Project.create!( name: u.name + "_project_1", created_by_user_id: u.id)
-Project.create!( name: u.name + "_project_2", created_by_user_id: u.id)
-Project.create!( name: u.name + "_project_3", created_by_user_id: u.id)
+Project.create!( name: u.name + "_project_1", user_id: u.id)
+Project.create!( name: u.name + "_project_2", user_id: u.id)
+Project.create!( name: u.name + "_project_3", user_id: u.id)
 
 
 #
