@@ -1,16 +1,48 @@
 
+
+
+
+
 <% content_for :sidebar do  %>
+  <div class="well project-sidebar">
+    <h5>Team members</h5>
+    <%= render "shared/fake_users" %>
     <% if @story.present? %>
-      <h5> Manage Story </h5>
-      <ul class="nav nav-tabs nav-stacked">
-        <li><%= link_to "Edit Details", "/stories/#{@story.id}?view=info" %></li>
-        <li><%= link_to "Edit Test" , "/stories/#{@story.id}?view=test" %></li>
-        <li><%= link_to "Estimate" , "/stories/#{@story.id}?view=estimate" %></li>
-        <li><%= link_to "Run Test" %></li>
-        <li><%= link_to "Approve" %></li>
-        <li><%= link_to "Add to Current Iteration" %></li>
-        <li><%= link_to "Remove from Current Iteration" %></li>
+      <h5> View </h5>
+      <ul>
+
+        <li><%= link_to raw("<i class='icon-dashboard'></i> Dashboard") , "/stories/#{@story.id}?view=dashboard" %></li>
+        <li><%= link_to raw("<i class='icon-time'></i> Story Estimation") , "/stories/#{@story.id}?view=estimate"%></li>
+        <li><%= link_to raw("<i class='icon-check'></i> Acceptence test") , "/stories/#{@story.id}?view=test" %></li>
+        <li><%= link_to raw("<i class='icon-question-sign'></i> Questions") , "/stories/#{@story.id}?view=calendar"%></li>
+        <li><%= link_to raw("<i class='icon-comments'></i> Activities") , "/stories/#{@story.id}?view=calendar"%></li>
+        <li><%= link_to raw("<i class='icon-bookmark'></i> Bookmarks") , "/stories/#{@story.id}?view=bookmarks"%></li>
+      </ul>
+      <hr/>
+
+      
+      <h5> Code Quality </h5>
+      <ul>
+        <li><%= link_to raw("<i class='icon-bar-chart'></i> Code Coverage") , ""%></li>
+        <li><%= link_to raw("<i class='icon-bar-chart'></i> Team Estimation") , ""%></li>
+        <li><%= link_to raw("<i class='icon-bar-chart'></i> Build Machine") , ""%></li>
+        <li><%= link_to raw("<i class='icon-list'></i> Files on repository") , ""%></li>
       </ul>
 
+      <hr/>
+
     <% end %>
+  </div>
 <%  end %>
+
+<style>
+  .project-sidebar{
+
+  }
+  .project-sidebar li{
+    list-style-type: none;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+</style>

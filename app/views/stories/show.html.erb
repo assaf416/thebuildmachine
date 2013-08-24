@@ -1,3 +1,5 @@
+
+
 <%= render "story_info" %>
 <hr/>
 
@@ -19,13 +21,6 @@
 <% end %>
 
 
-<% if @view.include? "estimate" %>
-  <div class="pull-right"> <h3><%= @story.estimation %> points </h3></div>
-  <h3> Story Tasks </h3>
-  <%= render "add_task" %>
-  <%= render "shared/fake_tasks" %>
-  <hr/>
-<% end %>
 
 <%= render "add_question_form" %>
 <%= render "edit_story_test_form" %>

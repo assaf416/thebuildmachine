@@ -13,7 +13,7 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
-    @story = Story.find(params[:id])
+    @story = Story.find(params[:id], :include => :tasks)
     @view = params[:view] ||=  "info"
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +25,6 @@ class StoriesController < ApplicationController
   # GET /stories/new.json
   def new
     @story = Story.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @story }
@@ -41,7 +40,7 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     @story = Story.new(params[:story])
-
+    @Story.created_by_user_id = current_user.id
     respond_to do |format|
       if @story.save
         format.html { redirect_to @story, notice: 'Story was successfully created.' }

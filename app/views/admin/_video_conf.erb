@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="span3 xhero-unit">
+
+    <%= render "video_box_with_controls" %>
+  </div>
+  <div class="span3 xhero-unit">
+     <%= render "video_box_with_controls" %>
+  </div>
+  <div class="span3 xhero-unit">
+     <%= render "video_box_with_controls" %>
+  </div>
+</div>
+<hr/>
+
+<%= render "white_board"%> 
+
+
+
+<% content_for :sidebar do  %>
+  <div class="well conference-sidebar">
+
+    <h5> Pending Invitations </h5>
+    <ul>
+      <li><%= link_to raw("<i class='icon-user'></i> Assaf Goldstein") , ""%></li>
+      <li><%= link_to raw("<i class='icon-user'></i> Idan Goldstein") , ""%></li>
+      <li><%= link_to raw("<i class='icon-envelope'></i> Invite") , ""%></li>
+    </ul>
+    
+    <hr/>
+    
+    <h5> Meeting Notes </h5>
+    <ul>
+      <li><%= link_to raw("<i class='icon-edit'></i> Update notes") , ""%></li>
+      <li><%= link_to raw("<i class='icon-check'></i> Add Task") , ""%></li>
+      <li><%= link_to raw("<i class='icon-envelope'></i> Share Notes") , ""%></li>
+    </ul>
+    <hr/>
+    
+    <h5> Whiteboard Actions </h5>
+    <ul>
+      <li><%= link_to raw("<i class='icon-share'></i> Share File") , ""%></li>
+      <li><%= link_to raw("<i class='icon-envelope'></i> Share Email") %> </li>
+      <li><%= link_to raw("<i class='icon-globe'></i> Share URL") , ""%></li>
+      <li><%= link_to raw("<i class='icon-youtube'></i> Share Movie") , ""%></li>
+      <li><%= link_to raw("<i class='icon-youtube'></i> Share Movie") , ""%></li>
+    </ul>
+    <hr/>
+  </div>
+<%  end %>
+
+<style>
+  
+  .hero-unit{
+    vertical-align: bottom;
+  }
+  
+  .conference-sidebar{
+
+  }
+  .conference-sidebar li{
+    list-style-type: none;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  .video-caller-info{
+    font-size:12px;
+    padding:0px;
+    margin: 0px;
+  }
+
+  .video-caller-description{
+    color:#006400;
+
+  }
+
+</style>

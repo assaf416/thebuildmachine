@@ -1,48 +1,35 @@
-<table class="table">
-  <tr>
-    <td width="100px">  <%= image_tag @user.picture_url, :size => "100x100" %> </td>
-    <td>
-      <p>
-        <b>Name:</b>
-        <%= @user.name %>
-      </p>
+<div class="well">
+  <table class="table">
+    <tr>
+      <td width="100px"><%= image_tag @user.picture_url , :size => "100x100" %></td>
+      <td>
+        <b>User: <%= @user.name %></b><br/>
+        <%= lorem(23) %><br/>
+        Admin?: <%= @user.admin %> | Developer: <%= @user.developer %>
+        Tester?: <%= @user.tester %> | Customer: <%= @user.customer %>
+      </td>
+    </tr>
+    <tr>
+      <td width="100px"></td>
+      <td colspan="1">
+        <% if current_user.admin? or @user.id == current_user.id %>
+        <%= link_to raw("<i class='icon-pencil'></i>  edit") , edit_user_path(@user) %> |
+        <% end %>
+        <%= link_to raw("<i class='icon-phone'></i>  Call") , "" %> |
+        <%= link_to raw("<i class='icon-envelope'></i>  text") , "" %> |
+        <%= link_to raw("<i class='icon-calendar'></i>  Setup Meeting") , "" %> |
+        <%= link_to raw("<i class='icon-star'></i>  Rate") , "" %> |
 
-      <p>
-        <b>Email:</b>
-        <%= @user.email %>
-      </p>
+        <a href="#addQuestionForm" role="button" class="xbtn" data-toggle="modal"><i class="icon-question-sign"></i> Ask Question</a> 
+      </td>
+    </tr>
+  </table>
 
 
-      <p>
-        <b>Admin:</b>
-        <%= @user.admin %>
-        <b>Developer:</b>     
-        <%= @user.developer %>
-        <b>Tester:</b>     
-        <%= @user.tester %>
-      </p>
 
-      <div class="btn-group">
-        <button class="btn"><i class="icon-link"></i> </button>
-        <button class="btn"><i class="icon-question-sign"></i></button>
-        <button class="btn"><i class="icon-time"></i></button>
-      </div>
-      
-      <div class="btn-group">
-        <button class="btn"><i class="icon-envelope"></i></button>
-        <button class="btn"><i class="icon-comments"></i></button>
-        <button class="btn"><i class="icon-volume-up"></i></button>
-        <button class="btn"><i class="icon-film"></i> </button>
-      </div>
-    </td>
-  </tr>
+<%#= render "add_story_form" %>
+<%#= render "add_question_form" %>
+</div>
 
-  <tr >
-    <td colspan="2"> 
-      <h5> Billing</h5>
-      Development Hour $12.00 | Testing $7.00 | Management $12.00 
-    </td>
-  </tr>
-</table>
 
 

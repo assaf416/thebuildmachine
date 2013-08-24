@@ -15,7 +15,9 @@ Forum::Application.routes.draw do
 
   resources :iterations
 
-  resources :tasks
+  resources :tasks do 
+    get "completed"
+  end
 
   resources :stories
 

@@ -1,0 +1,43 @@
+<table class="table">
+  <% names = ["Assaf Goldstein", "Idan Goldstein", "David Blue", "Joe blow", "Richard smith"] %>
+  <% for task in @story.tasks  do  %>
+      <tr>
+        <td width="32px">
+          <span class="label label-info"><h3> <%= "#{task.estimation}" %></h3></span> 
+        </td>
+        <td>
+          <p><%=  task.description %></p>
+          
+          <% unless task.estimated_by_user_id.nil?%>
+            Estimated by : <%= User.find(task.estimated_by_user_id).name  %>
+            <%= time_ago_in_words task.updated_at %>
+          <% end %>
+          <br/> Status: <%= task.status %>
+
+          
+          <div class="task-commands">
+            <%= link_to raw("<i class='icon-remove'></i> Destroy"), task, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+            <% unless task.compeleted?  %>
+              <%= link_to raw("<i class='icon-check'></i> Completed!"), "/tasks/#{task.id}/completed" %>
+            <% end %>
+          </div>
+
+          
+          <div class=" hidden btn-group">
+            <button class="btn">0p</button>
+            <button class="btn">1p</button>
+            <button class="btn">2p</button>
+            <button class="btn">3p </button>
+            <button class="btn"><i class="icon-arrow-down"></i></button>
+            <button class="btn"><i class="icon-arrow-up"></i></button>
+            <button class="btn"><i class="icon-remove"></i></button>
+          </div>
+
+          
+        </td>
+        <td width="65px">
+          <h3> <%= raw fake_user_image(65) %>  </h3>
+        </td>
+      </tr>
+    <% end %>
+  </table>

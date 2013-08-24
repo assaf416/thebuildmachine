@@ -1,4 +1,4 @@
-<% @task = Task.new %>
+<% @task = Task.new() %>
 <%= simple_form_for(@task) do |f| %>
   <%= f.error_notification %>
 
@@ -6,9 +6,11 @@
     <table class="table">
       <tr>
         <td width="70%">
-          <textarea style="width:450px;height:80px;"><%= @task.description %></textarea>
+          <textarea name="task[description]" style="width:350px;height:80px;"><%= @task.description %></textarea>
         </td>
         <td width="30%">
+          <%= f.hidden_field :story_id , :value => @story.id %>
+          <%= f.hidden_field :estimated_by_user_id , :value => current_user.id %>
           <%= f.input :estimation, :collection => ["0","1 Unit","2 Units","3 Units", "Spkie"] %>
           <%= f.button :submit %>
         </td>

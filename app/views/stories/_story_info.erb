@@ -1,62 +1,118 @@
-`<div class="row">
+<div class="well">
+  <table class="table">
+    <tr>
+      <td width="100px"><%= image_tag @story.project.profile_image_url , :size => "100x100" %></td>
+      <td>
+        <b>Story: <%= @story.name %></b><br/>
+        <%= @story.description %><br/>
 
-  <div class="span1">
-    <%= image_tag @story.project.profile_image_url , :size => "80x80" %>
-  </div>
-
-  <div class="span8">
-    <table class="table">
-      <tr>
-        <td width="50%">
-          <B>Story</B><br/>
-          <%= @story.name%>
+        <% if @story.estimation > 0 %>
+          <br/><b> Estimation </b><br/>
+          <p>
+            <% for task in @story.tasks do  %>
+                (<%= task.estimation %> points) -  <%= task.description %><br/>
+              <% end %>
+            </p>
+          <% end %>
         </td>
-
-        <td>
-          <B>Members</B><br/>
-          <%= link_to raw(fake_user_image(32)) , ""  %>
-          <%= link_to raw(fake_user_image(32)) , ""  %>
-          <%= link_to raw(fake_user_image(32)) , ""  %>
-        </td>
-
-
-        <td>
-          <B>Status</B><br/>
-          <%= raw(fake_story_status_bar(rand(99)))%>
+        <td width="120px">
+          <%= @story.complition %> / <%= @story.estimation %>
+          <%= raw(fake_story_status_bar(@story.complition))%><br/>
         </td>
       </tr>
+      <tr>
+        <td width="100px"></td>
+        <td colspan="2">
+          <%= link_to raw("<i class='icon-pencil'></i> Edit") , edit_story_path(@story) %> |
+          <%= link_to raw("<i class='icon-cog'></i> Test") , "" %> |
+          <%= link_to raw("<i class='icon-time'></i> Estimate") , "/stories/#{@story.id}?view=estimate" %> |
+          <a href="#addQuestionForm" role="button" class="xbtn" data-toggle="modal"><i class="icon-question-sign"></i> Ask Question</a> |
+          <%= link_to raw("<i class='icon-bookmark'></i>  Add Bookmark") , "" %>
+        </td>
+      </tr>
+
       <tr>
         <td colspan="3">
-          <%= @story.description %>
+          <%= render "story_estimation" if @view.include? "estimate" %>
         </td>
       </tr>
 
-      <tr>
-        <td>
-          Actions<br/>
-          <div class="btn-group">
-            <a href="#addQuestionForm" role="button" class="btn" data-toggle="modal"><i class="icon-question-sign"></i></a>
-            <a href="#editStoryTestForm" role="button" class="btn" data-toggle="modal"><i class="icon-check"></i></a>
-            <button class="btn"><i class="icon-hand-down"></i></button>
-            <button class="btn"><i class="icon-hand-up"></i></button>
-          </div>
-        </td>
 
-        <td colspan="2">
-          Add to story<br/>
-          <div class="btn-group">
-            <% if current_user.developer? %>
-              <button onclick="location.href='/stories/<%=@story.id%>?view=estimate';" class="btn"><i class="icon-time"></i></button>
-              <button onclick="location.href='/stories/<%=@story.id%>?view=estimate';" class="btn"><i class="icon-question-sign"></i></button>
-            <% end %>
-            <% if current_user.customer? %>
-              <button class="btn"><i class="icon-group"></i></button>
-              <button class="btn"><i class="icon-remove"></i></button>
-            <% end %>
-          </div>
+      <% if @story.functional_test.present? %>
+        <tr>
+          <td colspan="3">
+            <div class="pull-right"><%= link_to "edit" , "/stories/#{@story.id}?view=test" %></div>
+            Story Test:
+            <%= raw Pygments.highlight(@story.functional_test) %>
+          </td>
+        </tr>
+      <% end %>
 
-        </td>
-      </tr>
     </table>
+
+
+
+    <%= render "add_story_form" %>
+    <%= render "add_question_form" %>
   </div>
-</div>
+
+
+  <div class="row hidden">
+
+    <div class="span1">
+      <%= image_tag @story.project.profile_image_url , :size => "80x80" %>
+    </div>
+
+    <div class="span8">
+      <table class="table">
+        <tr>
+          <td width="50%">
+            <B>Story</B><br/>
+            <%= @story.name%>
+          </td>
+
+          <td>
+
+          </td>
+
+
+          <td>
+            <B>Status</B><br/>
+            <%= raw(fake_story_status_bar(rand(99)))%>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <%= @story.description %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Actions<br/>
+            <div class="btn-group">
+              <a href="#addQuestionForm" role="button" class="btn" data-toggle="modal"><i class="icon-question-sign"></i></a>
+              <a href="#editStoryTestForm" role="button" class="btn" data-toggle="modal"><i class="icon-check"></i></a>
+              <button class="btn"><i class="icon-hand-down"></i></button>
+              <button class="btn"><i class="icon-hand-up"></i></button>
+            </div>
+          </td>
+
+          <td colspan="2">
+            Add to story<br/>
+            <div class="btn-group">
+              <% if current_user.developer? %>
+                <button onclick="location.href='/stories/<%=@story.id%>?view=estimate';" class="btn"><i class="icon-time"></i></button>
+                <button onclick="location.href='/stories/<%=@story.id%>?view=estimate';" class="btn"><i class="icon-question-sign"></i></button>
+              <% end %>
+              <% if current_user.customer? %>
+                <button class="btn"><i class="icon-group"></i></button>
+                <button class="btn"><i class="icon-remove"></i></button>
+              <% end %>
+            </div>
+
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>

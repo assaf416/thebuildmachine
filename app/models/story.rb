@@ -7,6 +7,7 @@ class Story < ActiveRecord::Base
                 
   has_many :tasks
   belongs_to :project
+  belongs_to :user
   belongs_to :iteration
   has_many :comments, as: :commentable
   
@@ -26,4 +27,13 @@ class Story < ActiveRecord::Base
     puts "TBD: Send email when denied"
   end
   
+  
+  def complition
+    est = 0; done =0
+      self.tasks.each{|t| 
+        est = est + t.estimation.to_i 
+        done = done + t.estimation.to_i if t.compeleted?
+     }
+    return done / est * 100
+  end
 end

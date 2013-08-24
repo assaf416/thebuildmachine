@@ -41,10 +41,9 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
-
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to "/stories/#{@task.story_id}/?view=estimate", notice: 'Task was successfully added.' }
         format.json { render json: @task, status: :created, location: @task }
       else
         format.html { render action: "new" }
@@ -57,10 +56,9 @@ class TasksController < ApplicationController
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
-
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to "/stories/#{@task.story_id}/?view=estimate", notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -69,14 +67,22 @@ class TasksController < ApplicationController
     end
   end
 
+  def completed
+    @task = Task.find(params[:task_id])
+    @task.status = "completed"
+    @task.save
+    redirect_to "/stories/#{@task.story_id}?view=estimate"
+  end
+  
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
     @task = Task.find(params[:id])
+    @story = @task.story
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      format.html { redirect_to "/stories/#{@story.id}/?view=estimate", notice: 'Task was successfully removed.'  }
       format.json { head :no_content }
     end
   end
