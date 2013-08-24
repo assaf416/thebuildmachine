@@ -43,6 +43,7 @@ class TasksController < ApplicationController
     @task = Task.new(params[:task])
     respond_to do |format|
       if @task.save
+        @task.story.add_activity("create_task" ,current_user, "#{current_user.name} created task  #{@task.description} " )
         format.html { redirect_to "/stories/#{@task.story_id}/?view=estimate", notice: 'Task was successfully added.' }
         format.json { render json: @task, status: :created, location: @task }
       else
@@ -71,6 +72,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:task_id])
     @task.status = "completed"
     @task.save
+    @task.story.add_activity("complete_task" ,current_user, "#{current_user.name} completed task  #{@task.description} " )
     redirect_to "/stories/#{@task.story_id}?view=estimate"
   end
   

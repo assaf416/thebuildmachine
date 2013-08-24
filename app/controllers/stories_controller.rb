@@ -13,7 +13,7 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
-    @story = Story.find(params[:id], :include => :tasks)
+    @story = Story.find(params[:id], :include => [:tasks,:activities])
     @view = params[:view] ||=  "info"
     respond_to do |format|
       format.html # show.html.erb
@@ -43,6 +43,7 @@ class StoriesController < ApplicationController
     @Story.created_by_user_id = current_user.id
     respond_to do |format|
       if @story.save
+        @story.add_activity("createstory" ,current_user, "#{current_user.name} created story #{@story.id}#{}" )
         format.html { redirect_to @story, notice: 'Story was successfully created.' }
         format.json { render json: @story, status: :created, location: @story }
       else
@@ -56,9 +57,10 @@ class StoriesController < ApplicationController
   # PUT /stories/1.json
   def update
     @story = Story.find(params[:id])
-
+    
     respond_to do |format|
-      if @story.update_attributes(params[:story])
+      if@story.update_attributes(params[:story])
+        @story.add_activity("updatestory" ,current_user, "#{current_user.name} updated story #{@story.id}#{}" )
         format.html { redirect_to @story, notice: 'Story was successfully updated.' }
         format.json { head :no_content }
       else
@@ -72,6 +74,7 @@ class StoriesController < ApplicationController
   # DELETE /stories/1.json
   def destroy
     @story = Story.find(params[:id])
+    @story.add_activity("deletestory" ,current_user, "#{current_user.name} deleted story #{@story.id}#{}" )
     @story.destroy
 
     respond_to do |format|

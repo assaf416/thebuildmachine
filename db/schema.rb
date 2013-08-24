@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130821194051) do
+ActiveRecord::Schema.define(:version => 20130824183308) do
 
   create_table "activities", :force => true do |t|
     t.integer  "project_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130821194051) do
     t.text     "body"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.integer  "story_id"
   end
 
   add_index "activities", ["created_by_user_id"], :name => "index_activities_on_created_by_user_id"
@@ -226,8 +227,9 @@ ActiveRecord::Schema.define(:version => 20130821194051) do
     t.boolean  "customer"
     t.integer  "tenant_id"
     t.integer  "cost_per_point"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.boolean  "email_on_new_message"
   end
 
   add_index "users", ["tenant_id"], :name => "index_users_on_tenant_id"
