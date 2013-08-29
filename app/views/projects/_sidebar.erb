@@ -9,47 +9,21 @@
         <li><%= link_to raw("<i class='icon-dashboard'></i> Dashboard") , "/projects/#{@project.id}?view=dashboard"%></li>
         <li><%= link_to raw("<i class='icon-calendar'></i> Calendar") , "/projects/#{@project.id}?view=calendar"%></li>
         <li><%= link_to raw("<i class='icon-check'></i> Todo") , "/projects/#{@project.id}?view=calendar"%></li>
-        <li><%= link_to raw("<i class='icon-cog'></i> Build Machine") , "/projects/#{@project.id}?view=calendar"%></li>
-        <li><%= link_to raw("<i class='icon-bookmark'></i> Bookmarks") , "/projects/#{@project.id}?view=calendar"%></li>
+        <li><%= link_to raw("<i class='icon-cog'></i> Build Machine") , "/projects/#{@project.id}?view=buildmachine"%></li>
+        <li><%= link_to raw("<i class='icon-bookmark'></i> Bookmarks") , "/projects/#{@project.id}?view=bookmarks"%></li>
         <li><%= link_to raw("<i class='icon-question-sign'></i> Questions") , "/projects/#{@project.id}?view=calendar"%></li>
+        <li><%= link_to raw("<i class='icon-time'></i> Activities") , "/projects/#{@project.id}?view=activities"%></li>
       </ul>
       <hr/>
 
 
       <h5> Stories </h5>
       <ul>
-        <li><%= link_to raw("Current Iteration (5)") , "/projects/#{@project.id}?view=dashboard"%></li>
-        <li><%= link_to raw("Backlog (41)") , "/projects/#{@project.id}?view=dashboard"%></li>
-        <li><%= link_to raw("Unestimated (13)") , "/projects/#{@project.id}?view=dashboard"%></li>
-        <li><%= link_to raw("Late stories (0)") , "/projects/#{@project.id}?view=dashboard"%></li>
-      </ul>
-      <hr/>
+        <li><%= link_to raw("<i class='icon-tasks'></i> Current iteration (#{rand(5)})") , "/projects/#{@project.id}?view=current"%></li>
+        <li><%= link_to raw("<i class='icon-calendar'></i> Backlog (#{rand(5)})") , "/projects/#{@project.id}/stories?view=current"%></li>
+        <li><%= link_to raw("<i class='icon-time'></i> Unestimated (#{rand(5)})") , "/projects/#{@project.id}/stories?view=current"%></li>
+        <li><%= link_to raw("<i class='icon-flag'></i> Late Stories (#{rand(5)})") , "/projects/#{@project.id}/stories?view=activities"%></li>
 
-
-      <h5> Budget </h5>
-      <ul>
-        <li><%= link_to raw("Code Coverage") , ""%></li>
-        <li><%= link_to raw("Estimation Charts") , ""%></li>
-      </ul>
-      <hr/>
-
-      <h5> Code Quality </h5>
-      <ul>
-        <li><%= link_to raw("Code Coverage") , ""%></li>
-        <li><%= link_to raw("Estimation Charts") , ""%></li>
-      </ul>
-
-      <hr/>
-      <h5> Project setup </h5>
-      <ul>
-        <li><%= link_to "Testing Server server", "/projects/#{@project.id}?view=production"%></li>
-        <li><%= link_to "Edit info", "/projects/#{@project.id}/edit"%></li>
-
-        <li><%= link_to "Project activities", "/projects/#{@project.id}?view=activities"%></li>
-        <li><%= link_to "Photos " %></li>
-        <li><%= link_to "Messages" %></li>
-        <li><%= link_to "Book marks " %></li>
-        <li><%= link_to "Meeting notes " %></li>
       </ul>
 
 

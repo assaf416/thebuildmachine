@@ -1,4 +1,6 @@
 Forum::Application.routes.draw do
+  resources :bookmarks
+
   resources :meeting_types
 
   resources :meetings
@@ -19,7 +21,14 @@ Forum::Application.routes.draw do
     get "completed"
   end
 
-  resources :stories
+  resources :stories do 
+    match 'test' => 'stories#show' , :params => {:view => "test"}, :on => :member
+    match 'estimate' => 'stories#show' , :params => {:view => "estimation"}, :on => :member
+    match 'dashboard' => 'stories#show' , :params => {:view => "dashboard"}, :on => :member
+    match 'questions' => 'stories#show' , :params => {:view => "questions"}, :on => :member
+    match 'activities' => 'stories#show' , :params => {:view => "activites"}, :on => :member
+    match 'bookmarks' => 'stories#show' , :params => {:view => "bookmarks"}, :on => :member
+  end
 
   resources :stroys
 

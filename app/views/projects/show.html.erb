@@ -11,26 +11,35 @@
       </td>
     </tr>
     <tr>
-      <td width="100px"></td>
-      <td colspan="2">
+      <td colspan="3">
         <a href="#addStoryForm" role="button" class="xbtn" data-toggle="modal"><i class="icon-quote-right"></i> Add story</a> |
+        <a href="#addIterationForm" role="button" class="xbtn" data-toggle="modal"><i class="icon-tasks"></i> Add Iteration</a>  |
         <%= link_to raw("<i class='icon-calendar'></i>  Setup Meeting") , "" %> |
-        <a href="#addQuestionForm" role="button" class="xbtn" data-toggle="modal"><i class="icon-question-sign"></i> Ask Question</a> |
-        <%= link_to raw("<i class='icon-bookmark'></i>  Add Bookmark") , "" %>
+        <a href="#addQuestionForm" role="button" class="xbtn" data-toggle="modal"><i class="icon-question-sign"></i> Ask question</a> |
+        <a href="#addBookmarkForm" role="button" class="xbtn" data-toggle="modal"><i class="icon-bookmark"></i> Add bookmark</a> 
+        
       </td>
     </tr>
   </table>
 
-
-
   <%= render "add_story_form" %>
   <%= render "add_question_form" %>
+  <%= render "add_bookmark_form" %>
 </div>
 
 
-<hr/>
-<h5>Stories in development </h5>
-<%= render "shared/fake_stories" %>
+<% if @view.include? "bookmarks" %>
+  <%= render "bookmarks" %>
+<% end  %>
+<% if @view.include? "buildmachine" %>
+  <%= render "buildmachine" %>
+<% end  %>
+
+<% if @view.include? "activities" %>
+  <%= render :partial => "activities"%>
+<% end %>
+
+
 
 
 <%= render "project_status" if @view.include? "dash" %>
@@ -39,8 +48,14 @@
 
 
 <% if @view.include? "stories" %>
-  <h2>Project Stories</h2>
   <%= render :partial => "stories", :locals => {:stories => @project.stories} %>
+<% end %>
+<hr/>
+
+
+<% if @view.include? "current" %>
+  <h5>Current iteration </h5>
+  <%= render "shared/fake_stories" %>
 <% end %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

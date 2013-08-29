@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="span9">
+    <h5>Project Bookmarks</h5>
+    <table class="table">
+      <% for bookmark in @project.bookmarks do  %>
+          <tr class="bookmark-list">
+            <td ><%= bookmark.url %><br/><p><%= lorem(12) %></p>  </td>
+            <td width="220px"> <%= link_to "open"%> | <%= link_to "share" %> | <%= link_to "delete" %>  </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+
+<style>
+  .bookmark-list p{font-size:10px; color:grey;}
+</style>

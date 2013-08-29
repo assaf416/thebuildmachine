@@ -3,7 +3,11 @@
 <%= render "story_info" %>
 <hr/>
 
-<%#= render "dashboard"  if @view.include? "info"%>
+
+
+<%= render "activities"  if @view.include? "activities"%>
+
+<%= render "dashboard"  if @view.include? "dahsboard"%>
 
 
 <% if @view.include? "test" %>
@@ -20,8 +24,6 @@
   <hr/>
 <% end %>
 
-
-<%= render "activities" %>
 
 <%= render "add_question_form" %>
 <%= render "edit_story_test_form" %>

@@ -13,12 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
+//= require edit_area_full
+
 
 
 $( document ).ready(function() {
-     $( "#new-story-btn" ).click(function( event ) {
+    $( "#new-story-btn" ).click(function( event ) {
         $("#quick_story_form").slideToggle(500);
         event.preventDefault();
     });
+    
+    
+    
+// popover demo
+    $("a[data-toggle=popover]").popover().click(function(e) {
+        e.preventDefault()
+   });
 });

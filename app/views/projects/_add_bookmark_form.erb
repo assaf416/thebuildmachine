@@ -1,0 +1,41 @@
+
+<% @bookmark = Bookmark.new %>
+
+<div id="addBookmarkForm"class="modal add_bookmark_modal xxx fade">
+  <%= simple_form_for(@bookmark) do |f| %>
+
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Add Bookmark</h3>
+    </div>
+    <div class="modal-body">
+      <%= f.error_notification %>
+      <%= f.hidden_field :project_id , :value => @project.id %>
+      <div class="form-inputs">
+        <div class="row">
+          <div class="span6">
+            <table class="table">
+              <tr>
+                <td width="50px"><%= raw( fake_user_image(50))   %></td>
+                <td colspan="2">
+                  <%= f.input :url , :label => "paste url of a page or movie"%>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <%= f.button :submit %>
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Canel</button>
+      
+    </div>
+    
+  <% end %>
+
+</div>
+
+
+<style>
+  .add_bookmark_modal{ height:220px; width:600px;}
+</style>

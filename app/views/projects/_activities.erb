@@ -1,0 +1,13 @@
+<h5> Project Activities </h5>
+<table class="table">
+
+  <% for item in @project.activities do  %>
+      <tr>
+        <td width="50px"><%= image_tag(User.find(item.created_by_user_id).picture_url, :size => "50x50")  %> </td>
+        <td >
+          <%= time_ago_in_words(item.created_at) %>
+          <%= simple_format item.body%>
+        </td>
+      </tr>
+    <% end %>
+  </table>

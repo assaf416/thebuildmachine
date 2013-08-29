@@ -9,6 +9,13 @@ attr_accessible :name, :email, :subdomain, :picture_url,
   has_many :meetings
   has_many :projects
   has_many :stories
+  has_many :bookmarks
+  
+  
+  
+  def communication_links
+    "User is online"
+  end
   
   
   include ApplicationHelper

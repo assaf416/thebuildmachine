@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
   has_many :activities
   has_many :comments, as: :commentable
   has_many :meetings
+  has_many :bookmarks
   
   include ApplicationHelper
   def create_demo_project

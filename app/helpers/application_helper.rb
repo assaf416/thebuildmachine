@@ -1,6 +1,9 @@
 module ApplicationHelper
   
   
+  
+  
+  
   def fake_story_status_bar(percent)
     
     if percent < 30

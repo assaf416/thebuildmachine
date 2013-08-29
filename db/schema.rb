@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130824183308) do
+ActiveRecord::Schema.define(:version => 20130824233206) do
 
   create_table "activities", :force => true do |t|
     t.integer  "project_id"
@@ -29,6 +29,20 @@ ActiveRecord::Schema.define(:version => 20130824183308) do
   add_index "activities", ["created_by_user_id"], :name => "index_activities_on_created_by_user_id"
   add_index "activities", ["kind"], :name => "index_activities_on_kind"
   add_index "activities", ["project_id"], :name => "index_activities_on_project_id"
+
+  create_table "bookmarks", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "story_id"
+    t.integer  "user_id"
+    t.string   "url"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "bookmarks", ["project_id"], :name => "index_bookmarks_on_project_id"
+  add_index "bookmarks", ["story_id"], :name => "index_bookmarks_on_story_id"
+  add_index "bookmarks", ["user_id"], :name => "index_bookmarks_on_user_id"
 
   create_table "comments", :force => true do |t|
     t.text     "content"

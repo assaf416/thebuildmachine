@@ -14,8 +14,8 @@
         <li><%= link_to raw("<i class='icon-dashboard'></i> Dashboard") , "/stories/#{@story.id}?view=dashboard" %></li>
         <li><%= link_to raw("<i class='icon-time'></i> Story Estimation") , "/stories/#{@story.id}?view=estimate"%></li>
         <li><%= link_to raw("<i class='icon-check'></i> Acceptence test") , "/stories/#{@story.id}?view=test" %></li>
-        <li><%= link_to raw("<i class='icon-question-sign'></i> Questions") , "/stories/#{@story.id}?view=calendar"%></li>
-        <li><%= link_to raw("<i class='icon-comments'></i> Activities") , "/stories/#{@story.id}?view=calendar"%></li>
+        <li><%= link_to raw("<i class='icon-question-sign'></i> Questions") , "/stories/#{@story.id}?view=questions"%></li>
+        <li><%= link_to raw("<i class='icon-comments'></i> Activities") , "/stories/#{@story.id}?view=activities"%></li>
         <li><%= link_to raw("<i class='icon-bookmark'></i> Bookmarks") , "/stories/#{@story.id}?view=bookmarks"%></li>
       </ul>
       <hr/>
@@ -33,6 +33,8 @@
 
     <% end %>
   </div>
+
+  <hr/>
 <%  end %>
 
 <style>
