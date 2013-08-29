@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="span9">
+    <h3>Approve or deny the story</h3>
+    <%= simple_form_for(@story) do |f| %>
+      <%= f.error_notification %>
+
+    <h5> Story production time</h5>
+      <div class="form-inputs">
+        <table class="table">
+          <tr>
+            <td>  <%= f.input :dev_actual , :collection => ["1 unit","2 units", "3 units","1 day", "2 days", "3 days"]%></td>
+            <td><%= f.input :test_actual , :collection => ["1 unit","2 units", "3 units","1 day", "2 days", "3 days"]%> </td>
+            <td> <br/>  <%= f.button :submit , :value => "Approve"%> <%= f.button :submit , :value => "Deny"%></td>
+          </tr>
+          <tr>
+            <td colspan="3">        <%= f.input :reason %></td>
+          </tr>
+        </table>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130824233206) do
+ActiveRecord::Schema.define(:version => 20130829164117) do
 
   create_table "activities", :force => true do |t|
     t.integer  "project_id"
@@ -180,6 +180,7 @@ ActiveRecord::Schema.define(:version => 20130824233206) do
     t.integer  "iteration_id"
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
+    t.text     "reason"
   end
 
   add_index "stories", ["created_by_user_id"], :name => "index_stories_on_created_by_user_id"

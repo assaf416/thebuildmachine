@@ -25,10 +25,11 @@
           <%= link_to raw("<i class='icon-pencil'></i> Edit") , edit_story_path(@story) %> |
           <%= link_to raw("<i class='icon-cog'></i> Test") , "" %> |
           <%= link_to raw("<i class='icon-time'></i> Estimate") , "/stories/#{@story.id}?view=estimate" %> |
+          <%= link_to raw("<i class='icon-ok'></i> Accept") , "/stories/#{@story.id}?view=approve" %> |
+          
           <a href="#addQuestionForm" role="button" class="xbtn" data-toggle="modal"><i class="icon-question-sign"></i> Ask Question</a> |
-          <a href="#addBookmarkForm" role="button" class="xbtn" data-toggle="modal"><i class="icon-bookmark"></i> Add Bookmark</a> |
-          <%= link_to raw("<i class='icon-ok'></i> Approve") , "/stories/#{@story.id}?view=approve" %> |
-          <%= link_to raw("<i class='icon-remove'></i> Deny") , "/stories/#{@story.id}?view=deny" %> 
+          <a href="#addBookmarkForm" role="button" class="xbtn" data-toggle="modal"><i class="icon-bookmark"></i> Add Bookmark</a> 
+          
         </td>
       </tr>
 

@@ -3,7 +3,8 @@ class Story < ActiveRecord::Base
     :functional_test, :iteration_id, :name, 
     :primary_solver_user_id, :project_id, 
     :secondary_solver_user_id, :status, :tested_by_user_id,
-    :dev_estimation, :dev_actual,:test_estimation
+    :dev_estimation, :dev_actual,:test_estimation,:test_actual, :reason
+
                 
   has_many :tasks
   has_many :activities
